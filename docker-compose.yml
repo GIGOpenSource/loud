@@ -29,7 +29,7 @@ services:
   web:
     build: .
     container_name: loud_web
-    command: daphne -b 0.0.0.0 -p 8000 main.asgi:application
+    command: daphne -b 0.0.0.0 -p 8000 main.wsgi:application
     volumes:
       - .:/app
       - ./logs:/app/logs
@@ -43,26 +43,6 @@ services:
     depends_on:
       - postgres
       - redis
-    networks:
-      - loud_network
-
-  # 24小时游戏服务
-  game_service:
-    build: .
-    container_name: loud_game_service
-    command: python manage.py run_crash_game --check-interval 5
-    volumes:
-      - .:/app
-      - ./logs:/app/logs
-    environment:
-      - DEBUG=1
-      - DATABASE_URL=postgresql://loud_user:loud_password@postgres:5432/loud_db
-      - REDIS_URL=redis://redis:6379/0
-      - DJANGO_SETTINGS_MODULE=loud.settings
-    depends_on:
-      - postgres
-      - redis
-      - web
     networks:
       - loud_network
 
