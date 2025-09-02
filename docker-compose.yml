@@ -29,7 +29,7 @@ services:
   web:
     build: .
     container_name: loud_web
-    command: daphne -b 0.0.0.0 -p 8000 main.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
       - ./logs:/app/logs
@@ -39,7 +39,7 @@ services:
       - DEBUG=1
       - DATABASE_URL=postgresql://loud_user:loud_password@postgres:5432/loud_db
       - REDIS_URL=redis://redis:6379/0
-      - DJANGO_SETTINGS_MODULE=Pet.settings
+      - DJANGO_SETTINGS_MODULE=main.settings
     depends_on:
       - postgres
       - redis
