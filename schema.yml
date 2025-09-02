@@ -1,0 +1,6038 @@
+openapi: 3.0.3
+info:
+  title: Loud API Documentation
+  version: 2.0.0
+  description: "\n    Loud 项目C端用户API接口文档\n    \n    ## \U0001F3AF 说明\n    \n    本文档仅包含C端用户相关功能接口。所有管理员操作请使用Django\
+    \ Admin后台管理。\n    \n    ## \U0001F510 认证方式\n    \n    本系统支持多种认证方式：\n    \n   \
+    \ 1. **Cookie认证** (推荐) - 登录后自动管理token，支持在线测试\n    2. **Token认证** - 使用HTTP Header传递token\n\
+    \    3. **Session认证** - Django默认session认证\n    \n    ## \U0001F680 快速开始\n    \n\
+    \    1. 使用 `/api/auth/login/` 端点登录获取token\n    2. 登录成功后，系统会自动设置cookie，可直接在文档中测试其他API\n\
+    \    3. 对于需要认证的接口，请确保已登录或提供有效的token\n    \n    ## \U0001F4CB 主要模块\n    \n    -\
+    \ **\U0001F511 认证模块** - 用户注册、登录、token管理\n    - **\U0001F464 用户资料** - 个人信息、头像、联系方式管理\n\
+    \    - **⚙️ 用户偏好** - 主题、语言、通知配置等个性化设置\n    - **\U0001F4B0 用户钱包** - 余额查询、充值、提现、转账等操作\n\
+    \    - **\U0001F4CA 交易记录** - 钱包交易历史、明细查询\n    - **\U0001F4C8 用户仪表板** - 个人数据概览、统计信息\n\
+    \    \n    ## ⚠️ 重要提醒\n    \n    - 本API仅供C端用户使用\n    - 管理员功能请访问: /admin/\n   \
+    \ - 如需技术支持，请联系开发团队\n    "
+paths:
+  /api/auth/check/:
+    get:
+      operationId: auth_check_retrieve
+      description: 检查当前用户的认证状态和基本信息
+      summary: 检查认证状态
+      tags:
+      - Authentication
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/login/:
+    post:
+      operationId: auth_login_create
+      description: 用户登录，成功后返回token并设置cookie认证
+      summary: 用户登录
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/logout/:
+    post:
+      operationId: auth_logout_create
+      description: 用户登出，撤销token并清除cookie
+      summary: 用户登出
+      tags:
+      - Authentication
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/my-login-history/:
+    get:
+      operationId: auth_my_login_history_list
+      description: 获取当前用户的登录历史记录
+      summary: 我的登录历史
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Authentication
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLoginHistoryList'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/password/change/:
+    post:
+      operationId: auth_password_change_create
+      description: 用户修改登录密码
+      summary: 修改密码
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordChangeRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/password/reset/:
+    post:
+      operationId: auth_password_reset_create
+      description: 发送密码重置邮件
+      summary: 密码重置
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/password/reset/confirm/:
+    post:
+      operationId: auth_password_reset_confirm_create
+      description: 通过重置token确认并设置新密码
+      summary: 确认密码重置
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/register/:
+    post:
+      operationId: auth_register_create
+      description: 注册新用户账户，支持用户名、邮箱和密码注册
+      summary: 用户注册
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/auth/token/refresh/:
+    post:
+      operationId: auth_token_refresh_create
+      description: 使用refresh token获取新的access token
+      summary: 刷新访问令牌
+      tags:
+      - Authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShortTokenRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ShortTokenRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ShortTokenRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/users/dashboard/:
+    get:
+      operationId: users_dashboard_retrieve
+      description: 获取用户仪表板数据，包含用户基本信息、资料、偏好设置、钱包数据和统计信息
+      summary: 用户仪表板
+      tags:
+      - User Dashboard
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/users/module-info/:
+    get:
+      operationId: users_module_info_retrieve
+      description: |-
+        模块信息接口
+        返回users模块的结构和功能信息
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/users/overview/:
+    get:
+      operationId: users_overview_retrieve
+      description: 获取用户概览信息，包含基本信息和各模块的状态概览
+      summary: 用户概览
+      tags:
+      - User Dashboard
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/users/preferences/:
+    get:
+      operationId: users_preferences_list
+      description: 列表视图
+      parameters:
+      - in: query
+        name: created_after
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间开始
+      - in: query
+        name: created_before
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间结束
+      - in: query
+        name: is_active
+        schema:
+          type: boolean
+        description: 是否激活
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: 状态
+      - in: query
+        name: updated_after
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间开始
+      - in: query
+        name: updated_before
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间结束
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserPreferenceList'
+          description: ''
+    post:
+      operationId: users_preferences_create
+      description: 创建视图
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceCreateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferenceCreate'
+          description: ''
+  /api/users/preferences/{id}/:
+    get:
+      operationId: users_preferences_retrieve
+      description: 详情视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+    put:
+      operationId: users_preferences_update
+      description: 更新视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferenceUpdate'
+          description: ''
+    patch:
+      operationId: users_preferences_partial_update
+      description: |-
+        用户偏好视图集
+        提供完整的偏好设置管理
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferenceUpdate'
+          description: ''
+    delete:
+      operationId: users_preferences_destroy
+      description: 删除视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/preferences/{id}/export_settings/:
+    get:
+      operationId: users_preferences_export_settings_retrieve
+      description: 导出设置
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/{id}/import_settings/:
+    post:
+      operationId: users_preferences_import_settings_create
+      description: 导入设置
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/{id}/reset_to_defaults/:
+    post:
+      operationId: users_preferences_reset_to_defaults_create
+      description: 重置为默认设置
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/{id}/summary/:
+    get:
+      operationId: users_preferences_summary_retrieve
+      description: 获取偏好设置摘要
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/{id}/update_custom_settings/:
+    patch:
+      operationId: users_preferences_update_custom_settings_partial_update
+      description: 更新自定义设置
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/{id}/update_notifications/:
+    patch:
+      operationId: users_preferences_update_notifications_partial_update
+      description: 更新通知设置
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户偏好.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/available_options/:
+    get:
+      operationId: users_preferences_available_options_retrieve
+      description: 获取可用选项
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/batch_create/:
+    post:
+      operationId: users_preferences_batch_create_create
+      description: 批量创建
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/batch_destroy/:
+    delete:
+      operationId: users_preferences_batch_destroy_destroy
+      description: 批量删除
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/preferences/batch_update/:
+    patch:
+      operationId: users_preferences_batch_update_partial_update
+      description: 批量更新
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/my_preferences/:
+    get:
+      operationId: users_preferences_my_preferences_retrieve
+      description: 获取当前用户的偏好设置
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/preferences/update_my_preferences/:
+    put:
+      operationId: users_preferences_update_my_preferences_update
+      description: 更新当前用户的偏好设置
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+    patch:
+      operationId: users_preferences_update_my_preferences_partial_update
+      description: 更新当前用户的偏好设置
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPreferenceRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreference'
+          description: ''
+  /api/users/profiles/:
+    get:
+      operationId: users_profiles_list
+      description: 列表视图
+      parameters:
+      - in: query
+        name: age_max
+        schema:
+          type: number
+        description: 最大年龄
+      - in: query
+        name: age_min
+        schema:
+          type: number
+        description: 最小年龄
+      - in: query
+        name: city
+        schema:
+          type: string
+        description: 城市过滤
+      - in: query
+        name: country
+        schema:
+          type: string
+        description: 国家过滤
+      - in: query
+        name: created_after
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间开始
+      - in: query
+        name: created_before
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间结束
+      - in: query
+        name: created_date
+        schema:
+          type: string
+          format: date
+        description: 创建日期
+      - in: query
+        name: created_month
+        schema:
+          type: number
+        description: 创建月份
+      - in: query
+        name: created_year
+        schema:
+          type: number
+        description: 创建年份
+      - in: query
+        name: gender
+        schema:
+          type: string
+          title: 性别
+          enum:
+          - female
+          - male
+          - other
+        description: |-
+          性别过滤
+
+          * `male` - 男
+          * `female` - 女
+          * `other` - 其他
+      - in: query
+        name: has_avatar
+        schema:
+          type: boolean
+        description: 是否有头像
+      - in: query
+        name: has_bio
+        schema:
+          type: boolean
+        description: 是否有个人简介
+      - in: query
+        name: has_social_links
+        schema:
+          type: boolean
+        description: 是否有社交链接
+      - in: query
+        name: has_website
+        schema:
+          type: boolean
+        description: 是否有个人网站
+      - in: query
+        name: is_active
+        schema:
+          type: boolean
+        description: 是否激活
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: profile_visibility
+        schema:
+          type: string
+          default: public
+          title: 资料可见性
+          enum:
+          - friends
+          - private
+          - public
+        description: |-
+          资料可见性过滤
+
+          * `public` - 公开
+          * `friends` - 仅好友
+          * `private` - 私密
+      - in: query
+        name: province
+        schema:
+          type: string
+        description: 省份过滤
+      - in: query
+        name: recent
+        schema:
+          type: string
+          enum:
+          - 1d
+          - 1h
+          - 1m
+          - 1w
+        description: |-
+          最近时间
+
+          * `1h` - 最近1小时
+          * `1d` - 最近1天
+          * `1w` - 最近1周
+          * `1m` - 最近1月
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: 状态
+      - in: query
+        name: updated_after
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间开始
+      - in: query
+        name: updated_before
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间结束
+      - in: query
+        name: updated_date
+        schema:
+          type: string
+          format: date
+        description: 更新日期
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserProfileListList'
+          description: ''
+    post:
+      operationId: users_profiles_create
+      description: 创建视图
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserProfileCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserProfileCreateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileCreate'
+          description: ''
+  /api/users/profiles/{id}/:
+    get:
+      operationId: users_profiles_retrieve
+      description: 详情视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+    put:
+      operationId: users_profiles_update
+      description: 更新视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserProfileUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserProfileUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileUpdate'
+          description: ''
+    patch:
+      operationId: users_profiles_partial_update
+      description: |-
+        用户资料视图集
+        提供完整的CRUD操作
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfileUpdate'
+          description: ''
+    delete:
+      operationId: users_profiles_destroy
+      description: 删除视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profiles/{id}/delete_avatar/:
+    delete:
+      operationId: users_profiles_delete_avatar_destroy
+      description: 删除头像
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profiles/{id}/public_profile/:
+    get:
+      operationId: users_profiles_public_profile_retrieve
+      description: 获取公开资料
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/{id}/stats/:
+    get:
+      operationId: users_profiles_stats_retrieve
+      description: 获取资料统计信息
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/{id}/upload_avatar/:
+    post:
+      operationId: users_profiles_upload_avatar_create
+      description: 上传头像
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户资料.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/batch_create/:
+    post:
+      operationId: users_profiles_batch_create_create
+      description: 批量创建
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/batch_destroy/:
+    delete:
+      operationId: users_profiles_batch_destroy_destroy
+      description: 批量删除
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/profiles/batch_update/:
+    patch:
+      operationId: users_profiles_batch_update_partial_update
+      description: 批量更新
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/my_profile/:
+    get:
+      operationId: users_profiles_my_profile_retrieve
+      description: 获取当前用户的资料
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/profiles/update_my_profile/:
+    put:
+      operationId: users_profiles_update_my_profile_update
+      description: 更新当前用户的资料
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+    patch:
+      operationId: users_profiles_update_my_profile_partial_update
+      description: 更新当前用户的资料
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/users/public/{user_id}/:
+    get:
+      operationId: users_public_retrieve
+      description: 获取公开资料
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPublicProfile'
+          description: ''
+    put:
+      operationId: users_public_update
+      description: 完整更新
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPublicProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPublicProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPublicProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPublicProfile'
+          description: ''
+    patch:
+      operationId: users_public_partial_update
+      description: 部分更新
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPublicProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPublicProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPublicProfileRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPublicProfile'
+          description: ''
+  /api/users/transactions/:
+    get:
+      operationId: users_transactions_list
+      description: 列表视图
+      parameters:
+      - in: query
+        name: amount_max
+        schema:
+          type: number
+        description: 最大金额
+      - in: query
+        name: amount_min
+        schema:
+          type: number
+        description: 最小金额
+      - in: query
+        name: can_refund
+        schema:
+          type: boolean
+        description: 是否可退款
+      - in: query
+        name: created_after
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间开始
+      - in: query
+        name: created_before
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间结束
+      - in: query
+        name: created_date
+        schema:
+          type: string
+          format: date
+        description: 创建日期
+      - in: query
+        name: created_month
+        schema:
+          type: number
+        description: 创建月份
+      - in: query
+        name: created_year
+        schema:
+          type: number
+        description: 创建年份
+      - in: query
+        name: currency
+        schema:
+          type: string
+          default: CNY
+          title: 货币类型
+          enum:
+          - CNY
+          - EUR
+          - GBP
+          - HKD
+          - JPY
+          - TWD
+          - USD
+        description: |-
+          货币类型
+
+          * `CNY` - 人民币
+          * `USD` - 美元
+          * `EUR` - 欧元
+          * `GBP` - 英镑
+          * `JPY` - 日元
+          * `HKD` - 港币
+          * `TWD` - 台币
+      - in: query
+        name: date_range
+        schema:
+          type: string
+          enum:
+          - last_month
+          - last_week
+          - this_month
+          - this_week
+          - this_year
+          - today
+          - yesterday
+        description: |-
+          时间范围过滤
+
+          * `today` - 今天
+          * `yesterday` - 昨天
+          * `this_week` - 本周
+          * `last_week` - 上周
+          * `this_month` - 本月
+          * `last_month` - 上月
+          * `this_year` - 今年
+      - in: query
+        name: destination
+        schema:
+          type: string
+        description: 交易目标
+      - in: query
+        name: flow_type
+        schema:
+          type: string
+          enum:
+          - expense
+          - income
+          - neutral
+        description: |-
+          资金流向过滤
+
+          * `income` - 收入
+          * `expense` - 支出
+          * `neutral` - 中性
+      - in: query
+        name: is_active
+        schema:
+          type: boolean
+        description: 是否激活
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: recent
+        schema:
+          type: string
+          enum:
+          - 1d
+          - 1h
+          - 1m
+          - 1w
+        description: |-
+          最近时间
+
+          * `1h` - 最近1小时
+          * `1d` - 最近1天
+          * `1w` - 最近1周
+          * `1m` - 最近1月
+      - in: query
+        name: reference_id
+        schema:
+          type: string
+        description: 外部参考ID
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: source
+        schema:
+          type: string
+        description: 交易来源
+      - in: query
+        name: status
+        schema:
+          type: string
+          default: completed
+          title: 交易状态
+          enum:
+          - cancelled
+          - completed
+          - failed
+          - pending
+          - processing
+          - refunded
+        description: |-
+          交易状态过滤
+
+          * `pending` - 待处理
+          * `processing` - 处理中
+          * `completed` - 已完成
+          * `failed` - 失败
+          * `cancelled` - 已取消
+          * `refunded` - 已退款
+      - in: query
+        name: transaction_type
+        schema:
+          type: string
+          title: 交易类型
+          enum:
+          - adjustment
+          - deposit
+          - freeze
+          - freeze_wallet
+          - payment
+          - penalty
+          - refund
+          - reward
+          - transfer_in
+          - transfer_out
+          - unfreeze
+          - unfreeze_wallet
+          - withdraw
+        description: |-
+          交易类型过滤
+
+          * `deposit` - 充值
+          * `withdraw` - 提现
+          * `transfer_in` - 转入
+          * `transfer_out` - 转出
+          * `payment` - 支付
+          * `refund` - 退款
+          * `freeze` - 冻结
+          * `unfreeze` - 解冻
+          * `freeze_wallet` - 冻结钱包
+          * `unfreeze_wallet` - 解冻钱包
+          * `adjustment` - 调账
+          * `reward` - 奖励
+          * `penalty` - 扣款
+      - in: query
+        name: updated_after
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间开始
+      - in: query
+        name: updated_before
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间结束
+      - in: query
+        name: updated_date
+        schema:
+          type: string
+          format: date
+        description: 更新日期
+      - in: query
+        name: wallet
+        schema:
+          type: integer
+      - in: query
+        name: wallet_id
+        schema:
+          type: integer
+        description: 钱包ID
+      - in: query
+        name: wallet_user
+        schema:
+          type: string
+        description: 钱包所有者
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWalletTransactionListList'
+          description: ''
+    post:
+      operationId: users_transactions_create
+      description: 创建视图
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/transactions/{id}/:
+    get:
+      operationId: users_transactions_retrieve
+      description: 详情视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 钱包交易.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+    put:
+      operationId: users_transactions_update
+      description: 更新视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 钱包交易.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+    patch:
+      operationId: users_transactions_partial_update
+      description: |-
+        钱包交易视图集
+        提供交易记录的查询和管理
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 钱包交易.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+    delete:
+      operationId: users_transactions_destroy
+      description: 删除视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 钱包交易.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/transactions/{id}/refund/:
+    post:
+      operationId: users_transactions_refund_create
+      description: 申请退款
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 钱包交易.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/transactions/batch_create/:
+    post:
+      operationId: users_transactions_batch_create_create
+      description: 批量创建
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/transactions/batch_destroy/:
+    delete:
+      operationId: users_transactions_batch_destroy_destroy
+      description: 批量删除
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/transactions/batch_update/:
+    patch:
+      operationId: users_transactions_batch_update_partial_update
+      description: 批量更新
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWalletTransactionRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/transactions/my_transactions/:
+    get:
+      operationId: users_transactions_my_transactions_retrieve
+      description: 获取当前用户的交易记录
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/transactions/transaction_summary/:
+    get:
+      operationId: users_transactions_transaction_summary_retrieve
+      description: 获取交易摘要统计
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransaction'
+          description: ''
+  /api/users/verify/:
+    get:
+      operationId: users_verify_retrieve
+      description: |-
+        验证用户接口
+        检查用户状态和权限
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/users/wallets/:
+    get:
+      operationId: users_wallets_list
+      description: 列表视图
+      parameters:
+      - in: query
+        name: balance_max
+        schema:
+          type: number
+        description: 最大余额
+      - in: query
+        name: balance_min
+        schema:
+          type: number
+        description: 最小余额
+      - in: query
+        name: balance_status
+        schema:
+          type: string
+          enum:
+          - empty
+          - high
+          - low
+          - normal
+        description: |-
+          余额状态过滤
+
+          * `empty` - 余额为0
+          * `low` - 余额较低
+          * `normal` - 余额正常
+          * `high` - 余额较高
+      - in: query
+        name: created_after
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间开始
+      - in: query
+        name: created_before
+        schema:
+          type: string
+          format: date-time
+        description: 创建时间结束
+      - in: query
+        name: created_date
+        schema:
+          type: string
+          format: date
+        description: 创建日期
+      - in: query
+        name: created_month
+        schema:
+          type: number
+        description: 创建月份
+      - in: query
+        name: created_year
+        schema:
+          type: number
+        description: 创建年份
+      - in: query
+        name: currency
+        schema:
+          type: string
+          default: CNY
+          title: 货币类型
+          enum:
+          - CNY
+          - EUR
+          - GBP
+          - HKD
+          - JPY
+          - TWD
+          - USD
+        description: |-
+          货币类型过滤
+
+          * `CNY` - 人民币
+          * `USD` - 美元
+          * `EUR` - 欧元
+          * `GBP` - 英镑
+          * `JPY` - 日元
+          * `HKD` - 港币
+          * `TWD` - 台币
+      - in: query
+        name: has_frozen_balance
+        schema:
+          type: boolean
+        description: 是否有冻结余额
+      - in: query
+        name: is_active
+        schema:
+          type: boolean
+        description: 是否激活
+      - in: query
+        name: is_verified
+        schema:
+          type: boolean
+        description: 是否已实名认证
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: recent
+        schema:
+          type: string
+          enum:
+          - 1d
+          - 1h
+          - 1m
+          - 1w
+        description: |-
+          最近时间
+
+          * `1h` - 最近1小时
+          * `1d` - 最近1天
+          * `1w` - 最近1周
+          * `1m` - 最近1月
+      - in: query
+        name: recently_active
+        schema:
+          type: string
+          enum:
+          - 1d
+          - 1m
+          - 1w
+        description: |-
+          最近活跃时间
+
+          * `1d` - 最近1天
+          * `1w` - 最近1周
+          * `1m` - 最近1月
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+        description: 状态
+      - in: query
+        name: updated_after
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间开始
+      - in: query
+        name: updated_before
+        schema:
+          type: string
+          format: date-time
+        description: 更新时间结束
+      - in: query
+        name: updated_date
+        schema:
+          type: string
+          format: date
+        description: 更新日期
+      - in: query
+        name: user_id
+        schema:
+          type: integer
+        description: 用户ID
+      - in: query
+        name: username
+        schema:
+          type: string
+        description: 用户名
+      - in: query
+        name: wallet_status
+        schema:
+          type: string
+          default: normal
+          title: 钱包状态
+          enum:
+          - closed
+          - frozen
+          - normal
+          - suspended
+        description: |-
+          钱包状态过滤
+
+          * `normal` - 正常
+          * `frozen` - 冻结
+          * `suspended` - 暂停
+          * `closed` - 关闭
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserWalletListList'
+          description: ''
+    post:
+      operationId: users_wallets_create
+      description: 创建视图
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletCreateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWalletCreate'
+          description: ''
+  /api/users/wallets/{id}/:
+    get:
+      operationId: users_wallets_retrieve
+      description: 详情视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+    put:
+      operationId: users_wallets_update
+      description: 更新视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWalletUpdate'
+          description: ''
+    patch:
+      operationId: users_wallets_partial_update
+      description: |-
+        用户钱包视图集
+        提供完整的钱包管理功能
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletUpdateRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWalletUpdate'
+          description: ''
+    delete:
+      operationId: users_wallets_destroy
+      description: 删除视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/wallets/{id}/deposit/:
+    post:
+      operationId: users_wallets_deposit_create
+      description: 充值
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/freeze/:
+    post:
+      operationId: users_wallets_freeze_create
+      description: 冻结金额
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/set_payment_password/:
+    post:
+      operationId: users_wallets_set_payment_password_create
+      description: 设置支付密码
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/stats/:
+    get:
+      operationId: users_wallets_stats_retrieve
+      description: 获取钱包统计信息
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/transactions/:
+    get:
+      operationId: users_wallets_transactions_retrieve
+      description: 获取钱包交易记录
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/transfer/:
+    post:
+      operationId: users_wallets_transfer_create
+      description: 转账
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/unfreeze/:
+    post:
+      operationId: users_wallets_unfreeze_create
+      description: 解冻金额
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/verify_wallet/:
+    post:
+      operationId: users_wallets_verify_wallet_create
+      description: 完成钱包实名认证
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/{id}/withdraw/:
+    post:
+      operationId: users_wallets_withdraw_create
+      description: 提现
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户钱包.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/available_currencies/:
+    get:
+      operationId: users_wallets_available_currencies_retrieve
+      description: 获取支持的货币类型
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/batch_create/:
+    post:
+      operationId: users_wallets_batch_create_create
+      description: 批量创建
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/batch_destroy/:
+    delete:
+      operationId: users_wallets_batch_destroy_destroy
+      description: 批量删除
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/users/wallets/batch_update/:
+    patch:
+      operationId: users_wallets_batch_update_partial_update
+      description: 批量更新
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserWalletRequest'
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+  /api/users/wallets/my_wallet/:
+    get:
+      operationId: users_wallets_my_wallet_retrieve
+      description: 获取当前用户的钱包
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWallet'
+          description: ''
+components:
+  schemas:
+    BlankEnum:
+      enum:
+      - ''
+    CurrencyEnum:
+      enum:
+      - CNY
+      - USD
+      - EUR
+      - GBP
+      - JPY
+      - HKD
+      - TWD
+      type: string
+      description: |-
+        * `CNY` - 人民币
+        * `USD` - 美元
+        * `EUR` - 欧元
+        * `GBP` - 英镑
+        * `JPY` - 日元
+        * `HKD` - 港币
+        * `TWD` - 台币
+    GenderEnum:
+      enum:
+      - male
+      - female
+      - other
+      type: string
+      description: |-
+        * `male` - 男
+        * `female` - 女
+        * `other` - 其他
+    LanguageEnum:
+      enum:
+      - zh-hans
+      - zh-hant
+      - en
+      - ja
+      - ko
+      type: string
+      description: |-
+        * `zh-hans` - 简体中文
+        * `zh-hant` - 繁体中文
+        * `en` - 英语
+        * `ja` - 日本語
+        * `ko` - 한국어
+    LoginHistory:
+      type: object
+      description: 登录历史序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+        ip_address:
+          type: string
+          nullable: true
+          title: IP地址
+        user_agent:
+          type: string
+          title: 用户代理
+        login_method:
+          allOf:
+          - $ref: '#/components/schemas/LoginMethodEnum'
+          default: password
+          title: 登录方式
+        is_successful:
+          type: boolean
+          default: true
+          title: 是否成功
+        failure_reason:
+          type: string
+          title: 失败原因
+          maxLength: 200
+        login_time:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 登录时间
+    LoginMethodEnum:
+      enum:
+      - password
+      - token
+      - oauth
+      type: string
+      description: |-
+        * `password` - 密码登录
+        * `token` - Token登录
+        * `oauth` - OAuth登录
+    LoginRequest:
+      type: object
+      description: 登录序列化器
+      properties:
+        username:
+          type: string
+          minLength: 1
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+          maxLength: 128
+        remember_me:
+          type: boolean
+          default: false
+      required:
+      - password
+      - username
+    PaginatedLoginHistoryList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoginHistory'
+    PaginatedUserPreferenceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserPreference'
+    PaginatedUserProfileListList:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserProfileList'
+            pagination:
+              type: object
+              properties:
+                current_page:
+                  type: integer
+                page_size:
+                  type: integer
+                total_pages:
+                  type: integer
+                total_count:
+                  type: integer
+                has_next:
+                  type: boolean
+                has_previous:
+                  type: boolean
+                next_page:
+                  type: integer
+                  nullable: true
+                previous_page:
+                  type: integer
+                  nullable: true
+    PaginatedUserWalletListList:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWalletList'
+            pagination:
+              type: object
+              properties:
+                current_page:
+                  type: integer
+                page_size:
+                  type: integer
+                total_pages:
+                  type: integer
+                total_count:
+                  type: integer
+                has_next:
+                  type: boolean
+                has_previous:
+                  type: boolean
+                next_page:
+                  type: integer
+                  nullable: true
+                previous_page:
+                  type: integer
+                  nullable: true
+    PaginatedWalletTransactionListList:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WalletTransactionList'
+            pagination:
+              type: object
+              properties:
+                current_page:
+                  type: integer
+                page_size:
+                  type: integer
+                total_pages:
+                  type: integer
+                total_count:
+                  type: integer
+                has_next:
+                  type: boolean
+                has_previous:
+                  type: boolean
+                next_page:
+                  type: integer
+                  nullable: true
+                previous_page:
+                  type: integer
+                  nullable: true
+    PasswordChangeRequest:
+      type: object
+      description: 密码修改序列化器
+      properties:
+        old_password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        new_password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        new_password_confirm:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - new_password
+      - new_password_confirm
+      - old_password
+    PasswordResetConfirmRequest:
+      type: object
+      description: 密码重置确认序列化器
+      properties:
+        token:
+          type: string
+          minLength: 1
+        new_password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        new_password_confirm:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - new_password
+      - new_password_confirm
+      - token
+    PasswordResetRequest:
+      type: object
+      description: 密码重置序列化器
+      properties:
+        email:
+          type: string
+          format: email
+          minLength: 1
+      required:
+      - email
+    PatchedUserPreferenceRequest:
+      type: object
+      description: 用户偏好序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          minLength: 1
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    PatchedUserPreferenceUpdateRequest:
+      type: object
+      description: 用户偏好更新序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          minLength: 1
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+    PatchedUserProfileRequest:
+      type: object
+      description: 用户资料序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        avatar:
+          type: string
+          format: binary
+          nullable: true
+          title: 头像
+          description: 用户头像，支持jpg、png、gif格式，最大5MB
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    PatchedUserProfileUpdateRequest:
+      type: object
+      description: 用户资料更新序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+    PatchedUserPublicProfileRequest:
+      type: object
+      description: 用户公开资料序列化器
+      properties:
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+    PatchedUserWalletRequest:
+      type: object
+      description: 用户钱包序列化器
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 可用余额
+          description: 用户可用余额
+        frozen_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 冻结余额
+          description: 被冻结的余额，不可用于消费
+        wallet_status:
+          allOf:
+          - $ref: '#/components/schemas/WalletStatusEnum'
+          default: normal
+          title: 钱包状态
+          description: |-
+            钱包的当前状态
+
+            * `normal` - 正常
+            * `frozen` - 冻结
+            * `suspended` - 暂停
+            * `closed` - 关闭
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否已实名认证
+          description: 钱包是否已完成实名认证
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    PatchedUserWalletUpdateRequest:
+      type: object
+      description: 用户钱包更新序列化器
+      properties:
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+    PatchedWalletTransactionRequest:
+      type: object
+      description: 钱包交易序列化器
+      properties:
+        transaction_type:
+          allOf:
+          - $ref: '#/components/schemas/TransactionTypeEnum'
+          title: 交易类型
+          description: |-
+            交易的类型
+
+            * `deposit` - 充值
+            * `withdraw` - 提现
+            * `transfer_in` - 转入
+            * `transfer_out` - 转出
+            * `payment` - 支付
+            * `refund` - 退款
+            * `freeze` - 冻结
+            * `unfreeze` - 解冻
+            * `freeze_wallet` - 冻结钱包
+            * `unfreeze_wallet` - 解冻钱包
+            * `adjustment` - 调账
+            * `reward` - 奖励
+            * `penalty` - 扣款
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          title: 交易金额
+          description: 交易涉及的金额
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          default: completed
+          title: 交易状态
+          description: |-
+            交易的当前状态
+
+            * `pending` - 待处理
+            * `processing` - 处理中
+            * `completed` - 已完成
+            * `failed` - 失败
+            * `cancelled` - 已取消
+            * `refunded` - 已退款
+        description:
+          type: string
+          title: 交易描述
+          description: 交易的详细描述
+        source:
+          type: string
+          title: 交易来源
+          description: 交易的来源，如支付渠道、转账用户等
+          maxLength: 100
+        destination:
+          type: string
+          title: 交易目标
+          description: 交易的目标，如提现渠道、转账用户等
+          maxLength: 100
+        reference_id:
+          type: string
+          title: 外部参考ID
+          description: 外部系统的交易ID或订单ID
+          maxLength: 100
+        fee:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 手续费
+          description: 交易产生的手续费
+        metadata:
+          title: 附加数据
+          description: 交易相关的附加信息
+    ProfileVisibilityEnum:
+      enum:
+      - public
+      - friends
+      - private
+      type: string
+      description: |-
+        * `public` - 公开
+        * `friends` - 仅好友
+        * `private` - 私密
+    Role:
+      type: object
+      description: 角色序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 角色名称
+          description: 角色名称
+          maxLength: 50
+        code:
+          type: string
+          title: 角色代码
+          description: 角色代码，用于程序识别
+          maxLength: 50
+        description:
+          type: string
+          title: 角色描述
+          description: 角色描述
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+          description: 角色是否激活
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 创建时间
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 更新时间
+      required:
+      - code
+      - name
+    RoleRequest:
+      type: object
+      description: 角色序列化器
+      properties:
+        name:
+          type: string
+          minLength: 1
+          title: 角色名称
+          description: 角色名称
+          maxLength: 50
+        code:
+          type: string
+          minLength: 1
+          title: 角色代码
+          description: 角色代码，用于程序识别
+          maxLength: 50
+        description:
+          type: string
+          title: 角色描述
+          description: 角色描述
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+          description: 角色是否激活
+      required:
+      - code
+      - name
+    ShortTokenRequest:
+      type: object
+      description: 32位短Token序列化器
+      properties:
+        token_type:
+          allOf:
+          - $ref: '#/components/schemas/TokenTypeEnum'
+          default: access
+          title: Token类型
+        device_info:
+          title: 设备信息
+        expires_at:
+          type: string
+          format: date-time
+          title: 过期时间
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+        last_used_at:
+          type: string
+          format: date-time
+          nullable: true
+          title: 最后使用时间
+      required:
+      - expires_at
+    StatusEnum:
+      enum:
+      - pending
+      - processing
+      - completed
+      - failed
+      - cancelled
+      - refunded
+      type: string
+      description: |-
+        * `pending` - 待处理
+        * `processing` - 处理中
+        * `completed` - 已完成
+        * `failed` - 失败
+        * `cancelled` - 已取消
+        * `refunded` - 已退款
+    ThemeEnum:
+      enum:
+      - light
+      - dark
+      - auto
+      type: string
+      description: |-
+        * `light` - 浅色主题
+        * `dark` - 深色主题
+        * `auto` - 跟随系统
+    TokenTypeEnum:
+      enum:
+      - access
+      - refresh
+      type: string
+      description: |-
+        * `access` - 访问令牌
+        * `refresh` - 刷新令牌
+    TransactionTypeEnum:
+      enum:
+      - deposit
+      - withdraw
+      - transfer_in
+      - transfer_out
+      - payment
+      - refund
+      - freeze
+      - unfreeze
+      - freeze_wallet
+      - unfreeze_wallet
+      - adjustment
+      - reward
+      - penalty
+      type: string
+      description: |-
+        * `deposit` - 充值
+        * `withdraw` - 提现
+        * `transfer_in` - 转入
+        * `transfer_out` - 转出
+        * `payment` - 支付
+        * `refund` - 退款
+        * `freeze` - 冻结
+        * `unfreeze` - 解冻
+        * `freeze_wallet` - 冻结钱包
+        * `unfreeze_wallet` - 解冻钱包
+        * `adjustment` - 调账
+        * `reward` - 奖励
+        * `penalty` - 扣款
+    User:
+      type: object
+      description: 用户序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 电子邮件地址
+          maxLength: 254
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称
+          maxLength: 50
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+          title: 头像
+          description: 用户头像
+        phone:
+          type: string
+          title: 手机号
+          description: 手机号码
+          maxLength: 11
+        first_name:
+          type: string
+          title: 名字
+          maxLength: 150
+        last_name:
+          type: string
+          title: 姓氏
+          maxLength: 150
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+          description: 用户是否激活
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否验证
+          description: 用户是否已验证
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 加入日期
+        last_login:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 上次登录
+        last_login_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 最后登录时间
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+          readOnly: true
+      required:
+      - username
+    UserCreateRequest:
+      type: object
+      description: 用户注册序列化器
+      properties:
+        username:
+          type: string
+          minLength: 1
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 电子邮件地址
+          maxLength: 254
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password_confirm:
+          type: string
+          writeOnly: true
+          minLength: 1
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称
+          maxLength: 50
+        phone:
+          type: string
+          title: 手机号
+          description: 手机号码
+          maxLength: 11
+        first_name:
+          type: string
+          title: 名字
+          maxLength: 150
+        last_name:
+          type: string
+          title: 姓氏
+          maxLength: 150
+      required:
+      - password
+      - password_confirm
+      - username
+    UserPreference:
+      type: object
+      description: 用户偏好序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+          title: 用户
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+        available_themes:
+          type: string
+          readOnly: true
+        available_languages:
+          type: string
+          readOnly: true
+        notification_summary:
+          type: string
+          readOnly: true
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    UserPreferenceCreate:
+      type: object
+      description: 用户偏好创建序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+    UserPreferenceCreateRequest:
+      type: object
+      description: 用户偏好创建序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          minLength: 1
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+    UserPreferenceRequest:
+      type: object
+      description: 用户偏好序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          minLength: 1
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    UserPreferenceUpdate:
+      type: object
+      description: 用户偏好更新序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+    UserPreferenceUpdateRequest:
+      type: object
+      description: 用户偏好更新序列化器
+      properties:
+        theme:
+          allOf:
+          - $ref: '#/components/schemas/ThemeEnum'
+          default: light
+          title: 主题
+          description: |-
+            界面主题设置
+
+            * `light` - 浅色主题
+            * `dark` - 深色主题
+            * `auto` - 跟随系统
+        language:
+          allOf:
+          - $ref: '#/components/schemas/LanguageEnum'
+          default: zh-hans
+          title: 语言
+          description: |-
+            界面语言设置
+
+            * `zh-hans` - 简体中文
+            * `zh-hant` - 繁体中文
+            * `en` - 英语
+            * `ja` - 日本語
+            * `ko` - 한국어
+        timezone:
+          type: string
+          minLength: 1
+          default: Asia/Shanghai
+          title: 时区
+          description: 用户所在时区
+          maxLength: 50
+        email_notifications:
+          type: boolean
+          default: true
+          title: 邮件通知
+          description: 是否接收邮件通知
+        push_notifications:
+          type: boolean
+          default: true
+          title: 推送通知
+          description: 是否接收推送通知
+        sms_notifications:
+          type: boolean
+          default: false
+          title: 短信通知
+          description: 是否接收短信通知
+        notification_types:
+          title: 通知类型设置
+          description: 各种通知类型的开关设置
+        show_online_status:
+          type: boolean
+          default: true
+          title: 显示在线状态
+          description: 是否向其他用户显示在线状态
+        allow_friend_requests:
+          type: boolean
+          default: true
+          title: 允许好友请求
+          description: 是否允许其他用户发送好友请求
+        allow_messages_from_strangers:
+          type: boolean
+          default: false
+          title: 允许陌生人消息
+          description: 是否允许非好友用户发送消息
+        auto_save_drafts:
+          type: boolean
+          default: true
+          title: 自动保存草稿
+          description: 是否自动保存编辑中的内容
+        enable_keyboard_shortcuts:
+          type: boolean
+          default: true
+          title: 启用键盘快捷键
+          description: 是否启用键盘快捷键
+        items_per_page:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          default: 20
+          title: 每页显示条数
+          description: 列表页面每页显示的项目数量
+        custom_settings:
+          title: 自定义设置
+          description: 用户自定义的其他设置
+    UserProfile:
+      type: object
+      description: 用户资料序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+          title: 用户
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+          title: 头像
+          description: 用户头像，支持jpg、png、gif格式，最大5MB
+        avatar_url:
+          type: string
+          readOnly: true
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+        display_name:
+          type: string
+          readOnly: true
+        age:
+          type: string
+          readOnly: true
+        full_address:
+          type: string
+          readOnly: true
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    UserProfileCreate:
+      type: object
+      description: 用户资料创建序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+    UserProfileCreateRequest:
+      type: object
+      description: 用户资料创建序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+    UserProfileList:
+      type: object
+      description: 用户资料列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        display_name:
+          type: string
+          readOnly: true
+        avatar_url:
+          type: string
+          readOnly: true
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    UserProfileRequest:
+      type: object
+      description: 用户资料序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        avatar:
+          type: string
+          format: binary
+          nullable: true
+          title: 头像
+          description: 用户头像，支持jpg、png、gif格式，最大5MB
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    UserProfileUpdate:
+      type: object
+      description: 用户资料更新序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+    UserProfileUpdateRequest:
+      type: object
+      description: 用户资料更新序列化器
+      properties:
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称，支持中文
+          pattern: ^[\u4e00-\u9fa5]{2,10}$
+          maxLength: 50
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+          title: 出生日期
+          description: 出生日期
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        province:
+          type: string
+          title: 省份
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        address:
+          type: string
+          title: 详细地址
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        profile_visibility:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVisibilityEnum'
+          default: public
+          title: 资料可见性
+          description: |-
+            控制个人资料的可见性
+
+            * `public` - 公开
+            * `friends` - 仅好友
+            * `private` - 私密
+        show_email:
+          type: boolean
+          default: false
+          title: 显示邮箱
+        show_phone:
+          type: boolean
+          default: false
+          title: 显示手机
+    UserPublicProfile:
+      type: object
+      description: 用户公开资料序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        display_name:
+          type: string
+          readOnly: true
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        avatar_url:
+          type: string
+          readOnly: true
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+        age:
+          type: string
+          readOnly: true
+    UserPublicProfileRequest:
+      type: object
+      description: 用户公开资料序列化器
+      properties:
+        bio:
+          type: string
+          title: 个人简介
+          description: 个人简介，最多500字
+          maxLength: 500
+        gender:
+          title: 性别
+          description: |-
+            性别
+
+            * `male` - 男
+            * `female` - 女
+            * `other` - 其他
+          oneOf:
+          - $ref: '#/components/schemas/GenderEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        country:
+          type: string
+          title: 国家
+          maxLength: 50
+        city:
+          type: string
+          title: 城市
+          maxLength: 50
+        website:
+          type: string
+          format: uri
+          title: 个人网站
+          maxLength: 200
+        twitter:
+          type: string
+          pattern: ^https?://(?:www\.)?twitter\.com/[A-Za-z0-9_]+/?$
+          maxLength: 100
+        github:
+          type: string
+          pattern: ^https?://(?:www\.)?github\.com/[A-Za-z0-9_-]+/?$
+          maxLength: 100
+    UserRequest:
+      type: object
+      description: 用户序列化器
+      properties:
+        username:
+          type: string
+          minLength: 1
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 电子邮件地址
+          maxLength: 254
+        nickname:
+          type: string
+          title: 昵称
+          description: 用户昵称
+          maxLength: 50
+        avatar:
+          type: string
+          format: binary
+          nullable: true
+          title: 头像
+          description: 用户头像
+        phone:
+          type: string
+          title: 手机号
+          description: 手机号码
+          maxLength: 11
+        first_name:
+          type: string
+          title: 名字
+          maxLength: 150
+        last_name:
+          type: string
+          title: 姓氏
+          maxLength: 150
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+          description: 用户是否激活
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否验证
+          description: 用户是否已验证
+      required:
+      - username
+    UserWallet:
+      type: object
+      description: 用户钱包序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+          title: 用户
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        currency_display:
+          type: string
+          readOnly: true
+        balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 可用余额
+          description: 用户可用余额
+        frozen_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 冻结余额
+          description: 被冻结的余额，不可用于消费
+        total_balance:
+          type: string
+          readOnly: true
+        available_balance:
+          type: string
+          readOnly: true
+        formatted_balance:
+          type: string
+          readOnly: true
+        formatted_total_balance:
+          type: string
+          readOnly: true
+        balance_status:
+          type: string
+          readOnly: true
+        total_income:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 总收入
+          description: 历史总收入金额
+        total_expense:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 总支出
+          description: 历史总支出金额
+        wallet_status:
+          allOf:
+          - $ref: '#/components/schemas/WalletStatusEnum'
+          default: normal
+          title: 钱包状态
+          description: |-
+            钱包的当前状态
+
+            * `normal` - 正常
+            * `frozen` - 冻结
+            * `suspended` - 暂停
+            * `closed` - 关闭
+        wallet_status_display:
+          type: string
+          readOnly: true
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否已实名认证
+          description: 钱包是否已完成实名认证
+        verified_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 认证时间
+          description: 完成实名认证的时间
+        last_transaction_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 最后交易时间
+          description: 最后一次交易的时间
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    UserWalletCreate:
+      type: object
+      description: 用户钱包创建序列化器
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+    UserWalletCreateRequest:
+      type: object
+      description: 用户钱包创建序列化器
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+    UserWalletList:
+      type: object
+      description: 用户钱包列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        currency_display:
+          type: string
+          readOnly: true
+        formatted_balance:
+          type: string
+          readOnly: true
+        balance_status:
+          type: string
+          readOnly: true
+        wallet_status:
+          allOf:
+          - $ref: '#/components/schemas/WalletStatusEnum'
+          default: normal
+          title: 钱包状态
+          description: |-
+            钱包的当前状态
+
+            * `normal` - 正常
+            * `frozen` - 冻结
+            * `suspended` - 暂停
+            * `closed` - 关闭
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否已实名认证
+          description: 钱包是否已完成实名认证
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    UserWalletRequest:
+      type: object
+      description: 用户钱包序列化器
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/CurrencyEnum'
+          default: CNY
+          title: 货币类型
+          description: |-
+            钱包使用的货币类型
+
+            * `CNY` - 人民币
+            * `USD` - 美元
+            * `EUR` - 欧元
+            * `GBP` - 英镑
+            * `JPY` - 日元
+            * `HKD` - 港币
+            * `TWD` - 台币
+        balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 可用余额
+          description: 用户可用余额
+        frozen_balance:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 冻结余额
+          description: 被冻结的余额，不可用于消费
+        wallet_status:
+          allOf:
+          - $ref: '#/components/schemas/WalletStatusEnum'
+          default: normal
+          title: 钱包状态
+          description: |-
+            钱包的当前状态
+
+            * `normal` - 正常
+            * `frozen` - 冻结
+            * `suspended` - 暂停
+            * `closed` - 关闭
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+        is_verified:
+          type: boolean
+          default: false
+          title: 是否已实名认证
+          description: 钱包是否已完成实名认证
+        is_active:
+          type: boolean
+          default: true
+          title: 是否激活
+    UserWalletUpdate:
+      type: object
+      description: 用户钱包更新序列化器
+      properties:
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+    UserWalletUpdateRequest:
+      type: object
+      description: 用户钱包更新序列化器
+      properties:
+        daily_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '10000.00'
+          title: 日限额
+          description: 每日消费限额
+        monthly_limit:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,10}(?:\.\d{0,2})?$
+          default: '100000.00'
+          title: 月限额
+          description: 每月消费限额
+    WalletStatusEnum:
+      enum:
+      - normal
+      - frozen
+      - suspended
+      - closed
+      type: string
+      description: |-
+        * `normal` - 正常
+        * `frozen` - 冻结
+        * `suspended` - 暂停
+        * `closed` - 关闭
+    WalletTransaction:
+      type: object
+      description: 钱包交易序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        wallet:
+          type: integer
+          readOnly: true
+          title: 钱包
+        transaction_type:
+          allOf:
+          - $ref: '#/components/schemas/TransactionTypeEnum'
+          title: 交易类型
+          description: |-
+            交易的类型
+
+            * `deposit` - 充值
+            * `withdraw` - 提现
+            * `transfer_in` - 转入
+            * `transfer_out` - 转出
+            * `payment` - 支付
+            * `refund` - 退款
+            * `freeze` - 冻结
+            * `unfreeze` - 解冻
+            * `freeze_wallet` - 冻结钱包
+            * `unfreeze_wallet` - 解冻钱包
+            * `adjustment` - 调账
+            * `reward` - 奖励
+            * `penalty` - 扣款
+        transaction_type_display:
+          type: string
+          readOnly: true
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          title: 交易金额
+          description: 交易涉及的金额
+        formatted_amount:
+          type: string
+          readOnly: true
+        balance_after:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 交易后余额
+          description: 交易完成后的钱包余额
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          default: completed
+          title: 交易状态
+          description: |-
+            交易的当前状态
+
+            * `pending` - 待处理
+            * `processing` - 处理中
+            * `completed` - 已完成
+            * `failed` - 失败
+            * `cancelled` - 已取消
+            * `refunded` - 已退款
+        status_display:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          title: 交易描述
+          description: 交易的详细描述
+        source:
+          type: string
+          title: 交易来源
+          description: 交易的来源，如支付渠道、转账用户等
+          maxLength: 100
+        destination:
+          type: string
+          title: 交易目标
+          description: 交易的目标，如提现渠道、转账用户等
+          maxLength: 100
+        reference_id:
+          type: string
+          title: 外部参考ID
+          description: 外部系统的交易ID或订单ID
+          maxLength: 100
+        fee:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 手续费
+          description: 交易产生的手续费
+        metadata:
+          title: 附加数据
+          description: 交易相关的附加信息
+        is_income:
+          type: string
+          readOnly: true
+        is_expense:
+          type: string
+          readOnly: true
+        can_refund:
+          type: string
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - amount
+      - transaction_type
+    WalletTransactionList:
+      type: object
+      description: 钱包交易列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        transaction_type:
+          allOf:
+          - $ref: '#/components/schemas/TransactionTypeEnum'
+          title: 交易类型
+          description: |-
+            交易的类型
+
+            * `deposit` - 充值
+            * `withdraw` - 提现
+            * `transfer_in` - 转入
+            * `transfer_out` - 转出
+            * `payment` - 支付
+            * `refund` - 退款
+            * `freeze` - 冻结
+            * `unfreeze` - 解冻
+            * `freeze_wallet` - 冻结钱包
+            * `unfreeze_wallet` - 解冻钱包
+            * `adjustment` - 调账
+            * `reward` - 奖励
+            * `penalty` - 扣款
+        transaction_type_display:
+          type: string
+          readOnly: true
+        formatted_amount:
+          type: string
+          readOnly: true
+        is_income:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          title: 交易描述
+          description: 交易的详细描述
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - transaction_type
+    WalletTransactionRequest:
+      type: object
+      description: 钱包交易序列化器
+      properties:
+        transaction_type:
+          allOf:
+          - $ref: '#/components/schemas/TransactionTypeEnum'
+          title: 交易类型
+          description: |-
+            交易的类型
+
+            * `deposit` - 充值
+            * `withdraw` - 提现
+            * `transfer_in` - 转入
+            * `transfer_out` - 转出
+            * `payment` - 支付
+            * `refund` - 退款
+            * `freeze` - 冻结
+            * `unfreeze` - 解冻
+            * `freeze_wallet` - 冻结钱包
+            * `unfreeze_wallet` - 解冻钱包
+            * `adjustment` - 调账
+            * `reward` - 奖励
+            * `penalty` - 扣款
+        amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,13}(?:\.\d{0,2})?$
+          title: 交易金额
+          description: 交易涉及的金额
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          default: completed
+          title: 交易状态
+          description: |-
+            交易的当前状态
+
+            * `pending` - 待处理
+            * `processing` - 处理中
+            * `completed` - 已完成
+            * `failed` - 失败
+            * `cancelled` - 已取消
+            * `refunded` - 已退款
+        description:
+          type: string
+          title: 交易描述
+          description: 交易的详细描述
+        source:
+          type: string
+          title: 交易来源
+          description: 交易的来源，如支付渠道、转账用户等
+          maxLength: 100
+        destination:
+          type: string
+          title: 交易目标
+          description: 交易的目标，如提现渠道、转账用户等
+          maxLength: 100
+        reference_id:
+          type: string
+          title: 外部参考ID
+          description: 外部系统的交易ID或订单ID
+          maxLength: 100
+        fee:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          default: '0.00'
+          title: 手续费
+          description: 交易产生的手续费
+        metadata:
+          title: 附加数据
+          description: 交易相关的附加信息
+      required:
+      - amount
+      - transaction_type
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+      description: Cookie认证 (推荐)：登录后自动管理，支持在线测试
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token认证：在Header中添加 "Token <your-token>"
+tags:
+- name: Authentication
+  description: 用户认证相关接口：注册、登录、token管理等
+- name: User Profiles
+  description: 用户资料管理：个人信息、头像、联系方式等
+- name: User Preferences
+  description: 用户偏好设置：主题、语言、通知配置等
+- name: User Wallets
+  description: 用户钱包管理：余额、充值、提现、转账等
+- name: Wallet Transactions
+  description: 钱包交易记录：交易历史、明细查询等
+- name: User Dashboard
+  description: 用户仪表板：概览信息、统计数据等

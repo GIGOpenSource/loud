@@ -1,0 +1,75 @@
+services:
+  # PostgreSQL数据库
+  postgres:
+    image: postgres:15
+    container_name: loud_postgres
+    environment:
+      POSTGRES_DB: loud_db
+      POSTGRES_USER: loud_user
+      POSTGRES_PASSWORD: loud_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - loud_network
+
+  # Redis缓存和Channel Layer
+  redis:
+    image: redis:7-alpine
+    container_name: loud_redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - loud_network
+
+  # Django应用
+  web:
+    build: .
+    container_name: loud_web
+    command: daphne -b 0.0.0.0 -p 8000 main.asgi:application
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - DATABASE_URL=postgresql://loud_user:loud_password@postgres:5432/loud_db
+      - REDIS_URL=redis://redis:6379/0
+      - DJANGO_SETTINGS_MODULE=loud.settings
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - loud_network
+
+  # 24小时游戏服务
+  game_service:
+    build: .
+    container_name: loud_game_service
+    command: python manage.py run_crash_game --check-interval 5
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+    environment:
+      - DEBUG=1
+      - DATABASE_URL=postgresql://loud_user:loud_password@postgres:5432/loud_db
+      - REDIS_URL=redis://redis:6379/0
+      - DJANGO_SETTINGS_MODULE=loud.settings
+    depends_on:
+      - postgres
+      - redis
+      - web
+    networks:
+      - loud_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  loud_network:
+    driver: bridge

@@ -1,0 +1,1029 @@
+INFO 2025-08-27 12:34:10,226 autoreload 60310 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 12:34:39,910 basehttp 60310 6159364096 "POST /api/auth/register/ HTTP/1.1" 201 882
+INFO 2025-08-27 12:34:40,992 basehttp 60310 6159364096 "POST /api/auth/login/ HTTP/1.1" 200 912
+INFO 2025-08-27 12:34:42,003 basehttp 60310 6159364096 "GET /api/users/profile/ HTTP/1.1" 200 210
+INFO 2025-08-27 12:34:43,023 basehttp 60310 6159364096 "PUT /api/users/profile/ HTTP/1.1" 200 352
+WARNING 2025-08-27 12:34:44,106 log 60310 6159364096 Bad Request: /api/auth/login/
+WARNING 2025-08-27 12:34:44,106 basehttp 60310 6159364096 "POST /api/auth/login/ HTTP/1.1" 400 49
+WARNING 2025-08-27 12:38:00,014 log 60646 8614010624 Unauthorized: /api/auth/check/
+WARNING 2025-08-27 12:38:00,233 log 60646 8614010624 Bad Request: /api/auth/login/
+WARNING 2025-08-27 12:38:00,475 log 60646 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 12:38:00,477 log 60646 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 12:38:00,912 log 60646 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 12:38:01,058 log 60646 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 12:38:02,014 log 60646 8614010624 Not Found: /api/users/profile/nonexistent/
+INFO 2025-08-27 12:38:21,221 autoreload 60310 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-27 12:38:21,472 autoreload 60691 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 14:28:58,354 autoreload 60691 8614010624 /Users/chan/Python/loud/users/migrations/0001_initial.py changed, reloading.
+INFO 2025-08-27 14:28:58,657 autoreload 62726 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 14:51:33,987 autoreload 62726 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-27 14:51:34,316 autoreload 63166 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-27 15:31:48,171 log 64071 8614010624 Unauthorized: /api/auth/check/
+WARNING 2025-08-27 15:31:48,384 log 64071 8614010624 Bad Request: /api/auth/login/
+WARNING 2025-08-27 15:31:48,606 log 64071 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:31:48,607 log 64071 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:31:49,035 log 64071 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:31:49,185 log 64071 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:31:50,128 log 64071 8614010624 Not Found: /api/users/profile/nonexistent/
+ERROR 2025-08-27 15:31:50,639 log 64071 8614010624 Internal Server Error: /api/users/preferences/
+ERROR 2025-08-27 15:31:50,710 log 64071 8614010624 Internal Server Error: /api/users/preferences/
+ERROR 2025-08-27 15:32:42,971 log 64222 8614010624 Internal Server Error: /api/users/preferences/
+INFO 2025-08-27 15:32:56,638 autoreload 63166 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-27 15:32:56,916 autoreload 64263 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:33:01,105 autoreload 64263 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-27 15:33:01,295 autoreload 64266 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:33:07,497 autoreload 64266 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-27 15:33:07,720 autoreload 64270 8614010624 Watching for file changes with StatReloader
+ERROR 2025-08-27 15:33:16,306 log 64396 8614010624 Internal Server Error: /api/users/preferences/
+INFO 2025-08-27 15:33:39,278 autoreload 64270 8614010624 /Users/chan/Python/loud/users/serializers.py changed, reloading.
+INFO 2025-08-27 15:33:39,571 autoreload 64447 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:33:40,698 autoreload 64447 8614010624 /Users/chan/Python/loud/users/serializers.py changed, reloading.
+INFO 2025-08-27 15:33:40,868 autoreload 64450 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-27 15:33:56,971 log 64593 8614010624 Unauthorized: /api/auth/check/
+WARNING 2025-08-27 15:33:57,200 log 64593 8614010624 Bad Request: /api/auth/login/
+WARNING 2025-08-27 15:33:57,422 log 64593 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:33:57,424 log 64593 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:33:57,856 log 64593 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:33:57,999 log 64593 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:33:58,961 log 64593 8614010624 Not Found: /api/users/profile/nonexistent/
+WARNING 2025-08-27 15:34:15,323 log 64665 8614010624 Unauthorized: /api/auth/check/
+WARNING 2025-08-27 15:34:15,542 log 64665 8614010624 Bad Request: /api/auth/login/
+WARNING 2025-08-27 15:34:15,775 log 64665 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:34:15,777 log 64665 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:34:16,218 log 64665 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:34:16,369 log 64665 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:34:17,326 log 64665 8614010624 Not Found: /api/users/profile/nonexistent/
+INFO 2025-08-27 15:35:56,275 autoreload 64450 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-27 15:35:56,565 autoreload 64730 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:40:00,237 autoreload 64841 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-27 15:40:02,389 log 64841 6192689152 Not Found: /
+WARNING 2025-08-27 15:40:02,389 basehttp 64841 6192689152 "GET / HTTP/1.1" 404 2799
+WARNING 2025-08-27 15:40:02,646 log 64841 6192689152 Not Found: /favicon.ico
+WARNING 2025-08-27 15:40:02,647 basehttp 64841 6192689152 "GET /favicon.ico HTTP/1.1" 404 2850
+WARNING 2025-08-27 15:40:11,502 log 64841 6192689152 Not Found: /api/auth/
+WARNING 2025-08-27 15:40:11,503 basehttp 64841 6192689152 "GET /api/auth/ HTTP/1.1" 404 6838
+WARNING 2025-08-27 15:41:19,791 log 64841 6226341888 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:41:19,791 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 422 197
+WARNING 2025-08-27 15:41:58,126 log 64841 6226341888 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:41:58,127 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 422 175
+WARNING 2025-08-27 15:42:06,723 log 64841 6226341888 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:42:06,723 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 422 112
+INFO 2025-08-27 15:42:13,513 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 201 836
+WARNING 2025-08-27 15:42:56,245 log 64841 6226341888 Forbidden: /api/auth/register/
+WARNING 2025-08-27 15:42:56,246 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 403 101
+WARNING 2025-08-27 15:43:05,140 log 64841 6226341888 Forbidden: /api/auth/register/
+WARNING 2025-08-27 15:43:05,140 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 403 101
+WARNING 2025-08-27 15:43:17,276 log 64841 6226341888 Forbidden: /api/auth/register/
+WARNING 2025-08-27 15:43:17,276 basehttp 64841 6226341888 "POST /api/auth/register/ HTTP/1.1" 403 101
+INFO 2025-08-27 15:44:09,259 autoreload 64841 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:09,479 autoreload 64730 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:09,701 autoreload 65006 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:09,701 autoreload 65005 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:09,709 autoreload 65007 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:35,364 autoreload 65005 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:35,645 autoreload 65006 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:35,770 autoreload 65061 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:35,899 autoreload 65062 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:37,929 autoreload 65061 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:38,001 autoreload 65062 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-27 15:44:38,141 autoreload 65069 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:38,223 autoreload 65070 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:55,571 autoreload 65069 8614010624 /Users/chan/Python/loud/utils/csrf.py changed, reloading.
+INFO 2025-08-27 15:44:55,743 autoreload 65070 8614010624 /Users/chan/Python/loud/utils/csrf.py changed, reloading.
+INFO 2025-08-27 15:44:55,867 autoreload 65168 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:55,973 autoreload 65169 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:58,023 autoreload 65168 8614010624 /Users/chan/Python/loud/utils/csrf.py changed, reloading.
+INFO 2025-08-27 15:44:58,127 autoreload 65169 8614010624 /Users/chan/Python/loud/utils/csrf.py changed, reloading.
+INFO 2025-08-27 15:44:58,225 autoreload 65172 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:44:58,372 autoreload 65173 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-27 15:45:02,029 basehttp 65173 6190608384 "POST /api/auth/register/ HTTP/1.1" 201 844
+INFO 2025-08-27 15:45:15,858 basehttp 65173 6190608384 "POST /api/auth/register/ HTTP/1.1" 201 837
+WARNING 2025-08-27 15:45:37,046 log 65494 8614010624 Unauthorized: /api/auth/check/
+WARNING 2025-08-27 15:45:37,275 log 65494 8614010624 Bad Request: /api/auth/login/
+WARNING 2025-08-27 15:45:37,570 log 65494 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:45:37,572 log 65494 8614010624 Unprocessable Entity: /api/auth/register/
+WARNING 2025-08-27 15:45:38,020 log 65494 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:45:38,173 log 65494 8614010624 Bad Request: /api/auth/password/change/
+WARNING 2025-08-27 15:45:39,192 log 65494 8614010624 Not Found: /api/users/profile/nonexistent/
+INFO 2025-08-27 15:57:39,340 autoreload 65172 8614010624 /Users/chan/Python/loud/utils/csrf.py changed, reloading.
+INFO 2025-08-27 15:57:39,705 autoreload 65752 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:19:00,253 autoreload 65752 8614010624 /Users/chan/Python/loud/.venv/lib/python3.11/site-packages/pkg_resources/__init__.py changed, reloading.
+INFO 2025-08-28 14:19:00,609 autoreload 81105 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:33:44,182 autoreload 81105 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-28 14:33:44,482 autoreload 81338 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:33:47,660 autoreload 81338 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-28 14:33:47,868 autoreload 81349 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:33:52,023 autoreload 81349 8614010624 /Users/chan/Python/loud/loud/urls.py changed, reloading.
+INFO 2025-08-28 14:33:52,248 autoreload 81352 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:34:03,546 autoreload 81352 8614010624 /Users/chan/Python/loud/games/exceptions.py changed, reloading.
+INFO 2025-08-28 14:34:03,735 autoreload 81469 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:34:04,842 autoreload 81469 8614010624 /Users/chan/Python/loud/games/exceptions.py changed, reloading.
+INFO 2025-08-28 14:34:05,021 autoreload 81472 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:34:14,296 autoreload 81472 8614010624 /Users/chan/Python/loud/games/serializers.py changed, reloading.
+INFO 2025-08-28 14:34:14,485 autoreload 81482 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:34:16,617 autoreload 81482 8614010624 /Users/chan/Python/loud/games/serializers.py changed, reloading.
+INFO 2025-08-28 14:34:16,799 autoreload 81485 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-28 14:35:34,230 log 81863 8614010624 Bad Request: /api/games/crash/bet/
+WARNING 2025-08-28 14:35:34,302 log 81863 8614010624 Bad Request: /api/games/crash/bet/
+WARNING 2025-08-28 14:36:02,688 log 81976 8614010624 Bad Request: /api/games/crash/bet/
+INFO 2025-08-28 14:36:51,640 autoreload 81485 8614010624 /Users/chan/Python/loud/games/views.py changed, reloading.
+INFO 2025-08-28 14:36:51,954 autoreload 82026 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:46:35,424 autoreload 82026 8614010624 /Users/chan/Python/loud/games/urls.py changed, reloading.
+INFO 2025-08-28 14:46:35,727 autoreload 82171 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 14:58:20,691 autoreload 82171 8614010624 /Users/chan/Python/loud/games/models.py changed, reloading.
+INFO 2025-08-28 14:58:21,010 autoreload 82366 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:02:32,908 autoreload 82366 8614010624 /Users/chan/Python/loud/games/views.py changed, reloading.
+INFO 2025-08-28 15:02:33,295 autoreload 82436 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-28 15:06:53,750 log 83140 8614010624 Unprocessable Entity: /api/games/crash/bet/
+WARNING 2025-08-28 15:06:53,827 log 83140 8614010624 Bad Request: /api/games/crash/bet/
+WARNING 2025-08-28 15:07:40,377 log 83249 8614010624 Bad Request: /api/games/crash/bet/
+INFO 2025-08-28 15:08:08,586 autoreload 82436 8614010624 /Users/chan/Python/loud/games/admin.py changed, reloading.
+INFO 2025-08-28 15:08:08,857 autoreload 83406 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:09:21,689 autoreload 83406 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:09:21,969 autoreload 83434 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:09:32,364 autoreload 83434 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:09:32,647 autoreload 83444 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:09:50,079 autoreload 83444 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:09:50,384 autoreload 83455 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:10:01,778 autoreload 83455 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:10:02,077 autoreload 83465 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:12:33,672 autoreload 83465 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-28 15:12:34,017 autoreload 83505 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:12:42,336 autoreload 83505 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-28 15:12:42,788 autoreload 83514 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-28 15:15:16,830 log 83706 8614010624 Bad Request: /api/games/crash/bet/
+INFO 2025-08-28 15:22:34,486 autoreload 83514 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:22:34,765 autoreload 84113 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:22:36,985 autoreload 84113 8614010624 /Users/chan/Python/loud/games/config_engine.py changed, reloading.
+INFO 2025-08-28 15:22:37,181 autoreload 84124 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-28 15:23:32,044 log 84403 8614010624 Bad Request: /api/games/crash/bet/
+WARNING 2025-08-28 15:24:31,115 log 84519 8614010624 Bad Request: /api/games/crash/bet/
+INFO 2025-08-28 15:26:12,503 autoreload 84609 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:28:07,576 autoreload 85562 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:28:52,716 autoreload 86388 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:29:03,738 autoreload 86441 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 15:30:53,957 autoreload 87952 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-28 15:31:03,628 log 87952 6161920000 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 15:31:03,629 basehttp 87952 6161920000 "GET /api/games/crash/ HTTP/1.1" 401 99
+WARNING 2025-08-28 15:31:10,208 log 87952 6161920000 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 15:31:10,208 basehttp 87952 6161920000 "GET /api/games/crash/ HTTP/1.1" 401 99
+WARNING 2025-08-28 15:31:10,224 log 87952 6161920000 Not Found: /ws/games/crash/
+WARNING 2025-08-28 15:31:10,224 basehttp 87952 6161920000 "GET /ws/games/crash/ HTTP/1.1" 404 3015
+INFO 2025-08-28 15:32:25,036 autoreload 87952 8614010624 /Users/chan/Python/loud/loud/settings.py changed, reloading.
+INFO 2025-08-28 15:38:20,968 autoreload 89278 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-28 16:09:00,457 autoreload 30 281473588174880 Watching for file changes with StatReloader
+INFO 2025-08-28 16:09:41,200 basehttp 30 281473003352480 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:09:53,375 basehttp 30 281473003352480 "GET /admin/ HTTP/1.1" 302 0
+WARNING 2025-08-28 16:10:07,028 log 30 281473003352480 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:10:07,029 basehttp 30 281473003352480 "GET /api/games/crash/ HTTP/1.1" 401 99
+INFO 2025-08-28 16:10:12,889 basehttp 30 281473003352480 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:10:12,921 basehttp 30 281473003352480 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+WARNING 2025-08-28 16:10:12,928 log 30 281472992866720 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:10:12,928 basehttp 30 281472992866720 "GET /api/games/crash/ HTTP/1.1" 401 99
+INFO 2025-08-28 16:10:58,854 basehttp 30 281472992866720 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-28 16:10:58,859 basehttp 30 281472992866720 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4174
+WARNING 2025-08-28 16:10:58,872 log 30 281473003352480 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:10:58,872 basehttp 30 281473003352480 "GET /api/games/crash/ HTTP/1.1" 401 99
+WARNING 2025-08-28 16:10:58,887 log 30 281473003352480 Not Found: /ws/games/crash/
+WARNING 2025-08-28 16:10:58,888 basehttp 30 281473003352480 "GET /ws/games/crash/ HTTP/1.1" 404 3015
+WARNING 2025-08-28 16:13:55,348 log 1 281472760082848 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:15:13,274 log 1 281472760082848 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:53:43,002 log 1 281472732819872 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 16:59:58,414 log 1 281472594407840 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 17:02:16,541 log 1 281472894300576 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 17:04:02,047 log 1 281473336799648 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 17:05:55,481 log 1 281472586019232 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 17:07:28,729 log 1 281472942535072 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 17:10:38,064 log 1 281472464384416 Unauthorized: /api/games/crash/
+WARNING 2025-08-28 18:04:57,454 log 1 281472879620512 Not Found: /accounts/login/
+INFO 2025-08-31 14:48:23,078 autoreload 85055 8614010624 Watching for file changes with StatReloader
+ERROR 2025-08-31 14:48:47,535 exception 85157 8614010624 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-08-31 14:48:47,544 log 85157 8614010624 Bad Request: /admin/
+ERROR 2025-08-31 14:48:47,544 exception 85157 8614010624 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING 2025-08-31 14:48:47,550 log 85157 8614010624 Bad Request: /admin/login/
+INFO 2025-08-31 14:48:57,884 autoreload 85055 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 14:48:58,176 autoreload 85198 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 14:49:25,427 basehttp 85198 6128447488 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-31 14:49:25,443 basehttp 85198 6128447488 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4169
+INFO 2025-08-31 14:49:25,508 basehttp 85198 6162100224 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-08-31 14:49:25,514 basehttp 85198 6145273856 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+INFO 2025-08-31 14:49:25,515 basehttp 85198 6178926592 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-08-31 14:49:25,515 basehttp 85198 6212579328 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-08-31 14:49:25,517 basehttp 85198 6128447488 "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+INFO 2025-08-31 14:49:25,517 basehttp 85198 6195752960 "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+INFO 2025-08-31 14:49:25,570 basehttp 85198 6195752960 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-08-31 14:49:31,931 autoreload 85198 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 14:49:32,245 autoreload 85312 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 14:49:32,797 basehttp 85312 6125219840 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-31 14:49:32,814 basehttp 85312 6125219840 "GET /admin/ HTTP/1.1" 200 10288
+INFO 2025-08-31 14:49:32,831 basehttp 85312 6125219840 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-08-31 14:49:32,853 basehttp 85312 6142046208 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-08-31 14:49:32,853 basehttp 85312 6125219840 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-08-31 14:49:36,491 basehttp 85312 6125219840 "GET /admin/authentication/user/ HTTP/1.1" 200 17358
+INFO 2025-08-31 14:49:36,509 basehttp 85312 6125219840 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-08-31 14:49:36,512 basehttp 85312 6175698944 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-31 14:49:36,513 basehttp 85312 6192525312 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-08-31 14:49:36,514 basehttp 85312 6209351680 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+INFO 2025-08-31 14:49:36,514 basehttp 85312 6125219840 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-08-31 14:49:36,518 basehttp 85312 6175698944 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-31 14:49:36,519 basehttp 85312 6142046208 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:36,523 basehttp 85312 6192525312 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-31 14:49:36,524 basehttp 85312 6125219840 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-08-31 14:49:36,525 basehttp 85312 6175698944 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-08-31 14:49:36,527 basehttp 85312 6125219840 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-08-31 14:49:36,530 basehttp 85312 6158872576 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-08-31 14:49:36,534 basehttp 85312 6158872576 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-31 14:49:36,534 basehttp 85312 6209351680 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-08-31 14:49:36,543 basehttp 85312 6125219840 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-08-31 14:49:36,544 basehttp 85312 6209351680 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-08-31 14:49:36,544 basehttp 85312 6158872576 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-08-31 14:49:39,129 basehttp 85312 6158872576 "GET /admin/authentication/loginhistory/ HTTP/1.1" 200 12717
+INFO 2025-08-31 14:49:39,145 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:40,439 basehttp 85312 6158872576 "GET /admin/authentication/role/ HTTP/1.1" 200 12251
+INFO 2025-08-31 14:49:40,457 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:41,352 basehttp 85312 6158872576 "GET /admin/authentication/authtoken/ HTTP/1.1" 200 13399
+INFO 2025-08-31 14:49:41,378 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:43,581 basehttp 85312 6158872576 "GET /admin/users/userwallet/ HTTP/1.1" 200 12775
+INFO 2025-08-31 14:49:43,596 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:44,372 basehttp 85312 6158872576 "GET /admin/users/userprofile/ HTTP/1.1" 200 12669
+INFO 2025-08-31 14:49:44,388 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:45,153 basehttp 85312 6158872576 "GET /admin/users/userpreference/ HTTP/1.1" 200 13708
+INFO 2025-08-31 14:49:45,171 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:49:46,625 basehttp 85312 6158872576 "GET /admin/auth/group/ HTTP/1.1" 200 10734
+INFO 2025-08-31 14:49:46,640 basehttp 85312 6158872576 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 14:59:50,366 autoreload 85312 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 14:59:50,766 autoreload 85466 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:02:12,032 autoreload 85466 8614010624 /Users/chan/Python/loud/base/models.py changed, reloading.
+INFO 2025-08-31 15:02:12,498 autoreload 86107 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:13:59,835 autoreload 86107 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-31 15:14:00,188 autoreload 86314 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:14:12,474 autoreload 86314 8614010624 /Users/chan/Python/loud/users/models.py changed, reloading.
+INFO 2025-08-31 15:14:12,745 autoreload 86322 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:14:13,859 autoreload 86322 8614010624 /Users/chan/Python/loud/users/admin.py changed, reloading.
+INFO 2025-08-31 15:14:14,047 autoreload 86330 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:14:30,335 autoreload 86330 8614010624 /Users/chan/Python/loud/users/signals.py changed, reloading.
+INFO 2025-08-31 15:14:30,635 autoreload 86342 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:17:09,763 basehttp 87632 6172913664 "GET /admin HTTP/1.1" 301 0
+INFO 2025-08-31 15:17:09,797 basehttp 87632 6189740032 "GET /admin/ HTTP/1.1" 200 10961
+INFO 2025-08-31 15:17:11,461 basehttp 87632 6189740032 "GET /admin/authentication/user/ HTTP/1.1" 200 17840
+INFO 2025-08-31 15:17:11,488 basehttp 87632 6189740032 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+ERROR 2025-08-31 15:17:13,353 log 87632 6189740032 Internal Server Error: /admin/users/userpreference/
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: user_preferences.created_by_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 2140, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: user_preferences.created_by_id
+ERROR 2025-08-31 15:17:13,355 basehttp 87632 6189740032 "GET /admin/users/userpreference/ HTTP/1.1" 500 208539
+INFO 2025-08-31 15:18:35,843 autoreload 87913 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:18:38,222 basehttp 87913 6192689152 "GET /admin/users/userpreference/ HTTP/1.1" 302 0
+INFO 2025-08-31 15:18:38,235 basehttp 87913 6192689152 "GET /admin/login/?next=/admin/users/userpreference/ HTTP/1.1" 200 4216
+INFO 2025-08-31 15:18:41,191 basehttp 87913 6192689152 "POST /admin/login/?next=/admin/users/userpreference/ HTTP/1.1" 302 0
+INFO 2025-08-31 15:18:41,209 basehttp 87913 6192689152 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:18:41,241 basehttp 87913 6192689152 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:18:45,848 basehttp 87913 6192689152 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:18:45,867 basehttp 87913 6192689152 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:18:49,724 basehttp 87913 6192689152 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:18:49,746 basehttp 87913 6192689152 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:18:50,311 basehttp 87913 6192689152 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:18:50,328 basehttp 87913 6192689152 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:18:51,300 basehttp 87913 6192689152 "GET /admin/authentication/user/1/change/ HTTP/1.1" 200 34102
+INFO 2025-08-31 15:18:51,345 basehttp 87913 6192689152 "GET /static/admin/css/forms.css HTTP/1.1" 200 8710
+INFO 2025-08-31 15:18:51,346 basehttp 87913 6276820992 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-08-31 15:18:51,346 basehttp 87913 6209515520 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:18:51,347 basehttp 87913 6226341888 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-08-31 15:18:51,347 basehttp 87913 6259994624 "GET /static/admin/js/inlines.js HTTP/1.1" 200 15526
+INFO 2025-08-31 15:18:51,348 basehttp 87913 6243168256 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-08-31 15:18:51,348 basehttp 87913 6192689152 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-08-31 15:18:51,349 basehttp 87913 6276820992 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+INFO 2025-08-31 15:18:51,349 basehttp 87913 6209515520 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15502
+INFO 2025-08-31 15:18:51,350 basehttp 87913 6209515520 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-08-31 15:18:51,389 basehttp 87913 6192689152 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+INFO 2025-08-31 15:18:51,389 basehttp 87913 6209515520 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2025-08-31 15:18:51,390 basehttp 87913 6259994624 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-08-31 15:18:51,390 basehttp 87913 6243168256 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-08-31 15:18:51,390 basehttp 87913 6276820992 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-08-31 15:18:55,254 basehttp 87913 6276820992 "GET /admin/authentication/role/add/?_to_field=id&_popup=1 HTTP/1.1" 200 13440
+INFO 2025-08-31 15:18:55,263 basehttp 87913 6276820992 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:19:01,321 basehttp 87913 6276820992 "GET /admin/authentication/role/ HTTP/1.1" 200 12729
+INFO 2025-08-31 15:19:01,338 basehttp 87913 6276820992 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:19:03,346 basehttp 87913 6276820992 "GET /admin/authentication/role/add/ HTTP/1.1" 200 20766
+INFO 2025-08-31 15:19:03,373 basehttp 87913 6276820992 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:19:07,996 basehttp 87913 6276820992 "GET /admin/authentication/role/ HTTP/1.1" 200 12729
+INFO 2025-08-31 15:19:15,377 autoreload 87913 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-31 15:19:15,762 autoreload 87926 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:21:58,036 basehttp 87926 6204502016 "GET /admin/authentication/role/ HTTP/1.1" 200 12729
+INFO 2025-08-31 15:21:58,060 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:21:58,994 basehttp 87926 6204502016 "GET /admin/authentication/role/ HTTP/1.1" 200 12729
+INFO 2025-08-31 15:21:59,013 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:22:04,757 basehttp 87926 6204502016 "GET /admin/ HTTP/1.1" 200 10957
+INFO 2025-08-31 15:22:06,565 basehttp 87926 6204502016 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:22:06,586 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:22:14,626 basehttp 87926 6204502016 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:22:14,647 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:22:16,476 basehttp 87926 6204502016 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:22:16,492 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:22:17,251 basehttp 87926 6204502016 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:22:17,267 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:22:18,958 basehttp 87926 6204502016 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:22:18,973 basehttp 87926 6204502016 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+WARNING 2025-08-31 15:46:56,432 log 94775 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:46:56,441 log 94775 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:46:56,448 log 94775 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:46:56,896 log 94775 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:46:56,900 log 94775 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:46:56,903 log 94775 8614010624 Forbidden: /api/users/dashboard/
+ERROR 2025-08-31 15:46:57,127 log 94775 6325039104 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:46:57,127 log 94775 6341865472 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:46:57,127 log 94775 6375518208 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:46:57,128 log 94775 6358691840 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:46:57,128 log 94775 6392344576 Internal Server Error: /api/users/dashboard/
+INFO 2025-08-31 15:48:11,019 autoreload 87926 8614010624 /Users/chan/Python/loud/users/profiles/serializers.py changed, reloading.
+INFO 2025-08-31 15:48:12,161 autoreload 94871 8614010624 Watching for file changes with StatReloader
+WARNING 2025-08-31 15:48:19,617 log 94974 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:48:19,626 log 94974 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:48:19,636 log 94974 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:48:20,079 log 94974 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:48:20,082 log 94974 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:48:20,085 log 94974 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:48:20,085 log 94974 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:48:20,086 log 94974 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:48:20,305 log 94974 6174928896 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:48:20,306 log 94974 6191755264 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:48:20,306 log 94974 6242234368 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:48:20,306 log 94974 6225408000 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:48:20,306 log 94974 6208581632 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:50:46,028 log 95141 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:50:46,034 log 95141 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:50:46,042 log 95141 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:50:46,479 log 95141 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:50:46,482 log 95141 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:50:46,485 log 95141 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:50:46,485 log 95141 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:50:46,486 log 95141 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:50:46,704 log 95141 6106542080 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:50:46,705 log 95141 6140194816 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:50:46,705 log 95141 6123368448 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:50:46,705 log 95141 6157021184 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:50:46,706 log 95141 6173847552 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:51:14,980 log 95296 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:14,987 log 95296 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:51:14,995 log 95296 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:51:15,442 log 95296 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:15,445 log 95296 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:51:15,448 log 95296 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:15,448 log 95296 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:51:15,448 log 95296 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:51:15,671 log 95296 6177075200 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:15,672 log 95296 6193901568 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:15,672 log 95296 6227554304 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:15,672 log 95296 6210727936 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:15,672 log 95296 6244380672 Internal Server Error: /api/users/dashboard/
+INFO 2025-08-31 15:51:24,334 basehttp 94871 12918534144 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:51:24,413 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:27,196 basehttp 94871 12918534144 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:51:27,257 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:28,463 basehttp 94871 12918534144 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:51:28,482 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:28,854 basehttp 94871 12918534144 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:51:28,875 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:30,114 basehttp 94871 12918534144 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:51:30,133 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:31,383 basehttp 94871 12918534144 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:51:31,400 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:51:32,007 basehttp 94871 12918534144 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:51:32,026 basehttp 94871 12918534144 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+WARNING 2025-08-31 15:51:51,687 log 95460 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:51,695 log 95460 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:51:51,705 log 95460 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:51:52,147 log 95460 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:52,149 log 95460 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:51:52,152 log 95460 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:51:52,153 log 95460 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:51:52,153 log 95460 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:51:52,374 log 95460 6183170048 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:52,375 log 95460 6199996416 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:52,375 log 95460 6216822784 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:52,375 log 95460 6250475520 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:51:52,375 log 95460 6233649152 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:52:33,376 log 95605 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:52:33,383 log 95605 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:52:33,390 log 95605 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:52:33,837 log 95605 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:52:33,840 log 95605 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:52:33,843 log 95605 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:52:33,843 log 95605 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:52:33,843 log 95605 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:52:34,065 log 95605 6141095936 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:52:34,066 log 95605 6174748672 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:52:34,066 log 95605 6157922304 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:52:34,066 log 95605 6191575040 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:52:34,066 log 95605 6208401408 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:53:00,771 log 95752 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:00,778 log 95752 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:00,785 log 95752 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:53:01,231 log 95752 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:01,234 log 95752 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:53:01,237 log 95752 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:01,238 log 95752 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:01,238 log 95752 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:53:01,461 log 95752 6118518784 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:01,461 log 95752 6135345152 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:01,461 log 95752 6152171520 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:01,461 log 95752 6168997888 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:01,461 log 95752 6185824256 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:53:33,229 log 95894 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:33,236 log 95894 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:33,244 log 95894 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:53:33,756 log 95894 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:33,759 log 95894 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:53:33,762 log 95894 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:33,762 log 95894 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:33,763 log 95894 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:53:33,986 log 95894 6107918336 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:33,986 log 95894 6124744704 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:33,986 log 95894 6141571072 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:33,986 log 95894 6158397440 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:33,986 log 95894 6175223808 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:53:51,482 log 96048 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:51,489 log 96048 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:51,497 log 96048 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:53:51,941 log 96048 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:51,945 log 96048 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:53:51,947 log 96048 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:53:51,947 log 96048 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:53:51,948 log 96048 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:53:52,168 log 96048 6184218624 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:52,169 log 96048 6217871360 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:52,169 log 96048 6201044992 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:52,169 log 96048 6234697728 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:53:52,170 log 96048 6251524096 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:54:14,899 log 96197 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:54:14,906 log 96197 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:54:14,913 log 96197 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:54:15,488 log 96197 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:54:15,492 log 96197 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:54:15,494 log 96197 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:54:15,494 log 96197 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:54:15,495 log 96197 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:54:15,718 log 96197 6134935552 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:54:15,718 log 96197 6118109184 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:54:15,719 log 96197 6151761920 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:54:15,719 log 96197 6168588288 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:54:15,719 log 96197 6185414656 Internal Server Error: /api/users/dashboard/
+WARNING 2025-08-31 15:55:55,760 log 97074 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:55:55,768 log 97074 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:55:55,777 log 97074 8614010624 Forbidden: /api/users/verify/
+WARNING 2025-08-31 15:55:56,261 log 97074 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:55:56,265 log 97074 8614010624 Method Not Allowed: /api/users/dashboard/
+WARNING 2025-08-31 15:55:56,267 log 97074 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 15:55:56,268 log 97074 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 15:55:56,268 log 97074 8614010624 Forbidden: /api/users/verify/
+ERROR 2025-08-31 15:55:56,493 log 97074 6177075200 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:55:56,494 log 97074 6193901568 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:55:56,494 log 97074 6210727936 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:55:56,494 log 97074 6227554304 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 15:55:56,494 log 97074 6244380672 Internal Server Error: /api/users/dashboard/
+INFO 2025-08-31 15:57:27,859 autoreload 94871 8614010624 /Users/chan/Python/loud/users/profiles/serializers.py changed, reloading.
+INFO 2025-08-31 15:57:28,252 autoreload 97144 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 15:58:19,567 basehttp 97144 6196686848 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:58:19,643 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:20,479 basehttp 97144 6196686848 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:58:20,503 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:24,590 basehttp 97144 6196686848 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:58:24,605 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:25,117 basehttp 97144 6196686848 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:58:25,130 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:25,664 basehttp 97144 6196686848 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:58:25,678 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:27,304 basehttp 97144 6196686848 "GET /admin/users/wallettransaction/ HTTP/1.1" 200 15481
+INFO 2025-08-31 15:58:27,323 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:28,565 basehttp 97144 6196686848 "GET /admin/users/userwallet/ HTTP/1.1" 200 19840
+INFO 2025-08-31 15:58:28,583 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:28,899 basehttp 97144 6196686848 "GET /admin/users/userprofile/ HTTP/1.1" 200 18390
+INFO 2025-08-31 15:58:28,911 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 15:58:29,252 basehttp 97144 6196686848 "GET /admin/users/userpreference/ HTTP/1.1" 200 19500
+INFO 2025-08-31 15:58:29,262 basehttp 97144 6196686848 "GET /admin/jsi18n/ HTTP/1.1" 200 9327
+INFO 2025-08-31 16:00:14,851 autoreload 97144 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:00:15,271 autoreload 97353 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:00:24,662 autoreload 97353 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:00:24,980 autoreload 97358 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:01:16,651 autoreload 97358 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:01:17,100 autoreload 97395 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:01:29,635 autoreload 97395 8614010624 /Users/chan/Python/loud/main/urls.py changed, reloading.
+INFO 2025-08-31 16:01:30,002 autoreload 97400 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:01:37,382 autoreload 97400 8614010624 /Users/chan/Python/loud/main/urls.py changed, reloading.
+INFO 2025-08-31 16:01:37,709 autoreload 97404 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:01:50,218 autoreload 97404 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:01:50,552 autoreload 97406 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:02:02,075 autoreload 97406 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:02:02,429 autoreload 97410 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:02:14,988 autoreload 97410 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:02:15,342 autoreload 97413 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:02:25,814 autoreload 97413 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:02:26,253 autoreload 97423 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:02:38,790 autoreload 97423 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-31 16:02:39,136 autoreload 97442 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:02:48,580 autoreload 97442 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-31 16:02:48,912 autoreload 97443 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:03:01,459 autoreload 97443 8614010624 /Users/chan/Python/loud/users/views.py changed, reloading.
+INFO 2025-08-31 16:03:01,817 autoreload 97449 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:03:19,510 autoreload 97449 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:03:19,857 autoreload 97621 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:03:38,807 autoreload 98244 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:04:22,641 basehttp 97621 6171881472 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:04:24,461 basehttp 97621 6171881472 "GET /api/schema/ HTTP/1.1" 200 346004
+WARNING 2025-08-31 16:04:40,536 log 97621 6171881472 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:04:40,537 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 179
+WARNING 2025-08-31 16:04:41,681 log 97621 6171881472 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:04:41,681 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 179
+WARNING 2025-08-31 16:05:21,774 log 97621 6171881472 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:05:21,774 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 200
+WARNING 2025-08-31 16:06:16,362 log 97621 6171881472 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:06:16,364 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 157
+WARNING 2025-08-31 16:06:26,351 log 97621 6171881472 The request's session was deleted before the request completed. The user may have logged out in a concurrent request, for example.: /api/auth/register/
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 127, in save
+    obj.save(
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 1133, in _save_table
+    raise DatabaseError("Forced update did not affect any rows.")
+django.db.utils.DatabaseError: Forced update did not affect any rows.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 136, in save
+    raise UpdateError
+django.contrib.sessions.backends.base.UpdateError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/middleware.py", line 61, in process_response
+    raise SessionInterrupted(
+django.contrib.sessions.exceptions.SessionInterrupted: The request's session was deleted before the request completed. The user may have logged out in a concurrent request, for example.
+WARNING 2025-08-31 16:06:26,353 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 22569
+WARNING 2025-08-31 16:07:08,217 log 97621 6171881472 The request's session was deleted before the request completed. The user may have logged out in a concurrent request, for example.: /api/auth/register/
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 127, in save
+    obj.save(
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/db/models/base.py", line 1133, in _save_table
+    raise DatabaseError("Forced update did not affect any rows.")
+django.db.utils.DatabaseError: Forced update did not affect any rows.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 136, in save
+    raise UpdateError
+django.contrib.sessions.backends.base.UpdateError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/contrib/sessions/middleware.py", line 61, in process_response
+    raise SessionInterrupted(
+django.contrib.sessions.exceptions.SessionInterrupted: The request's session was deleted before the request completed. The user may have logged out in a concurrent request, for example.
+WARNING 2025-08-31 16:07:08,218 basehttp 97621 6171881472 "POST /api/auth/register/ HTTP/1.1" 400 22569
+INFO 2025-08-31 16:07:19,674 basehttp 97621 6171881472 "GET /api/docs/ HTTP/1.1" 200 4880
+WARNING 2025-08-31 16:07:20,214 log 98513 8614010624 Forbidden: /api/auth/logout/
+WARNING 2025-08-31 16:07:20,215 log 98513 8614010624 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 16:07:20,215 log 98513 8614010624 Forbidden: /api/users/overview/
+WARNING 2025-08-31 16:07:20,215 log 98513 8614010624 Forbidden: /api/users/profiles/
+WARNING 2025-08-31 16:07:20,216 log 98513 8614010624 Forbidden: /api/users/wallets/
+WARNING 2025-08-31 16:07:20,216 log 98513 8614010624 Forbidden: /api/users/dashboard/
+INFO 2025-08-31 16:07:39,837 autoreload 97621 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:07:40,398 autoreload 98588 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:10:07,330 autoreload 98588 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:10:07,742 autoreload 98648 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:10:30,642 autoreload 98648 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:10:30,986 autoreload 98654 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:10:49,760 autoreload 98654 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:10:50,088 autoreload 98660 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:11:35,702 basehttp 98660 6158807040 "GET /api/docs/ HTTP/1.1" 200 4880
+WARNING 2025-08-31 16:11:35,714 log 98660 6158807040 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:11:35,714 basehttp 98660 6158807040 "POST /api/auth/register/ HTTP/1.1" 400 141
+INFO 2025-08-31 16:11:35,717 basehttp 98660 6158807040 "GET /api/docs/ HTTP/1.1" 200 4880
+WARNING 2025-08-31 16:11:35,896 log 98660 6158807040 Bad Request: /api/auth/login/
+WARNING 2025-08-31 16:11:35,897 basehttp 98660 6158807040 "POST /api/auth/login/ HTTP/1.1" 400 99
+INFO 2025-08-31 16:12:23,151 autoreload 98660 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:12:23,559 autoreload 99188 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:12:45,907 basehttp 99188 6167719936 "GET /api/docs/ HTTP/1.1" 200 4880
+WARNING 2025-08-31 16:12:45,993 log 99188 6167719936 Bad Request: /api/auth/register/
+WARNING 2025-08-31 16:12:45,993 basehttp 99188 6167719936 "POST /api/auth/register/ HTTP/1.1" 400 108
+INFO 2025-08-31 16:12:45,995 basehttp 99188 6167719936 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:12:46,074 basehttp 99188 6167719936 "POST /api/auth/login/ HTTP/1.1" 200 509
+INFO 2025-08-31 16:13:33,992 autoreload 99188 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:13:34,450 autoreload 99335 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:13:40,260 basehttp 99335 6161559552 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:13:40,351 basehttp 99335 6161559552 "POST /api/auth/register/ HTTP/1.1" 200 479
+INFO 2025-08-31 16:13:40,353 basehttp 99335 6161559552 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:13:40,433 basehttp 99335 6161559552 "POST /api/auth/login/ HTTP/1.1" 200 509
+INFO 2025-08-31 16:14:03,038 basehttp 99335 6161559552 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:14:03,145 basehttp 99335 6161559552 "POST /api/auth/register/ HTTP/1.1" 200 479
+INFO 2025-08-31 16:14:03,147 basehttp 99335 6161559552 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 16:14:03,225 basehttp 99335 6161559552 "POST /api/auth/login/ HTTP/1.1" 200 509
+INFO 2025-08-31 16:14:44,097 basehttp 99335 6161559552 "POST /api/auth/register/ HTTP/1.1" 200 476
+INFO 2025-08-31 16:15:12,013 basehttp 99335 6161559552 "POST /api/auth/login/ HTTP/1.1" 200 521
+INFO 2025-08-31 16:15:25,259 basehttp 99335 6161559552 "GET /api/auth/check/ HTTP/1.1" 200 281
+ERROR 2025-08-31 16:15:30,362 log 99335 6161559552 Internal Server Error: /api/users/overview/
+ERROR 2025-08-31 16:15:30,363 basehttp 99335 6161559552 "GET /api/users/overview/ HTTP/1.1" 500 104
+ERROR 2025-08-31 16:15:39,042 log 99335 6161559552 Internal Server Error: /api/users/dashboard/
+ERROR 2025-08-31 16:15:39,043 basehttp 99335 6161559552 "GET /api/users/dashboard/ HTTP/1.1" 500 214
+INFO 2025-08-31 16:16:13,878 autoreload 99335 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 16:16:14,266 autoreload 99784 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:18:31,164 autoreload 99784 8614010624 /Users/chan/Python/loud/authentication/urls.py changed, reloading.
+INFO 2025-08-31 16:18:31,575 autoreload 99820 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:18:46,211 autoreload 99820 8614010624 /Users/chan/Python/loud/main/urls.py changed, reloading.
+INFO 2025-08-31 16:18:46,545 autoreload 99830 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:19:20,803 autoreload 99830 8614010624 /Users/chan/Python/loud/main/urls.py changed, reloading.
+INFO 2025-08-31 16:19:21,157 autoreload 99838 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:19:46,073 autoreload 99838 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:19:46,416 autoreload 99845 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:20:04,141 autoreload 99845 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:20:04,383 autoreload 99853 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:20:15,879 autoreload 99853 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:20:16,204 autoreload 99861 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:20:24,646 autoreload 99861 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:20:24,964 autoreload 99867 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:21:01,284 autoreload 99867 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:21:01,662 autoreload 99885 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:21:09,041 autoreload 99885 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:21:09,379 autoreload 99890 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:21:16,779 autoreload 99890 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:21:17,067 autoreload 99891 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:21:28,592 autoreload 99891 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:21:28,925 autoreload 99893 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:22:00,094 autoreload 99893 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:22:00,448 autoreload 99904 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:22:13,001 autoreload 99904 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 16:22:13,316 autoreload 99908 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 16:22:37,218 autoreload 99908 8614010624 /Users/chan/Python/loud/authentication/urls.py changed, reloading.
+INFO 2025-08-31 16:22:37,545 autoreload 99924 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 18:33:22,659 autoreload 99924 8614010624 /Users/chan/Python/loud/authentication/urls.py changed, reloading.
+INFO 2025-08-31 18:33:22,862 autoreload 2768 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 18:35:14,893 basehttp 2768 6199226368 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 18:35:14,895 basehttp 2768 6216052736 "OPTIONS /api/auth/register/ HTTP/1.1" 200 185
+INFO 2025-08-31 18:35:14,897 basehttp 2768 6232879104 "OPTIONS /api/auth/login/ HTTP/1.1" 200 182
+WARNING 2025-08-31 18:35:14,899 log 2768 6216052736 Forbidden: /api/auth/logout/
+WARNING 2025-08-31 18:35:14,899 basehttp 2768 6216052736 "OPTIONS /api/auth/logout/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,900 log 2768 6232879104 Forbidden: /api/auth/check/
+WARNING 2025-08-31 18:35:14,901 basehttp 2768 6232879104 "OPTIONS /api/auth/check/ HTTP/1.1" 403 99
+INFO 2025-08-31 18:35:14,903 basehttp 2768 6216052736 "OPTIONS /api/auth/token/refresh/ HTTP/1.1" 200 189
+WARNING 2025-08-31 18:35:14,905 log 2768 6232879104 Forbidden: /api/auth/password/change/
+WARNING 2025-08-31 18:35:14,905 basehttp 2768 6232879104 "OPTIONS /api/auth/password/change/ HTTP/1.1" 403 99
+INFO 2025-08-31 18:35:14,907 basehttp 2768 6216052736 "OPTIONS /api/auth/password/reset/ HTTP/1.1" 200 191
+INFO 2025-08-31 18:35:14,908 basehttp 2768 6232879104 "OPTIONS /api/auth/password/reset/confirm/ HTTP/1.1" 200 205
+WARNING 2025-08-31 18:35:14,909 log 2768 6216052736 Forbidden: /api/auth/my-login-history/
+WARNING 2025-08-31 18:35:14,909 basehttp 2768 6216052736 "OPTIONS /api/auth/my-login-history/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,910 log 2768 6232879104 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 18:35:14,910 basehttp 2768 6232879104 "OPTIONS /api/users/dashboard/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,911 log 2768 6216052736 Forbidden: /api/users/overview/
+WARNING 2025-08-31 18:35:14,911 basehttp 2768 6216052736 "OPTIONS /api/users/overview/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,913 log 2768 6232879104 Forbidden: /api/users/verify/
+WARNING 2025-08-31 18:35:14,913 basehttp 2768 6232879104 "OPTIONS /api/users/verify/ HTTP/1.1" 403 99
+INFO 2025-08-31 18:35:14,914 basehttp 2768 6216052736 "OPTIONS /api/users/module-info/ HTTP/1.1" 200 231
+WARNING 2025-08-31 18:35:14,915 log 2768 6232879104 Forbidden: /api/users/profiles/
+WARNING 2025-08-31 18:35:14,915 basehttp 2768 6232879104 "OPTIONS /api/users/profiles/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,916 log 2768 6216052736 Forbidden: /api/users/preferences/
+WARNING 2025-08-31 18:35:14,916 basehttp 2768 6216052736 "OPTIONS /api/users/preferences/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,918 log 2768 6232879104 Forbidden: /api/users/wallets/
+WARNING 2025-08-31 18:35:14,918 basehttp 2768 6232879104 "OPTIONS /api/users/wallets/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:14,922 log 2768 6216052736 Not Found: /api/auth/roles/
+WARNING 2025-08-31 18:35:14,922 basehttp 2768 6216052736 "OPTIONS /api/auth/roles/ HTTP/1.1" 404 5704
+WARNING 2025-08-31 18:35:14,925 log 2768 6232879104 Not Found: /api/auth/users/
+WARNING 2025-08-31 18:35:14,925 basehttp 2768 6232879104 "OPTIONS /api/auth/users/ HTTP/1.1" 404 5704
+WARNING 2025-08-31 18:35:14,928 log 2768 6216052736 Not Found: /api/auth/login-history/
+WARNING 2025-08-31 18:35:14,928 basehttp 2768 6216052736 "OPTIONS /api/auth/login-history/ HTTP/1.1" 404 5728
+WARNING 2025-08-31 18:35:14,931 log 2768 6232879104 Not Found: /admin-api/
+WARNING 2025-08-31 18:35:14,932 basehttp 2768 6232879104 "OPTIONS /admin-api/ HTTP/1.1" 404 3358
+INFO 2025-08-31 18:35:15,276 basehttp 2768 6216052736 "GET /api/schema/ HTTP/1.1" 200 167738
+WARNING 2025-08-31 18:35:15,278 log 2768 6216052736 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 18:35:15,278 basehttp 2768 6216052736 "GET /api/users/dashboard/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:15,279 log 2768 6232879104 Forbidden: /api/users/profiles/
+WARNING 2025-08-31 18:35:15,279 basehttp 2768 6232879104 "GET /api/users/profiles/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:15,280 log 2768 6216052736 Forbidden: /api/auth/logout/
+WARNING 2025-08-31 18:35:15,280 basehttp 2768 6216052736 "GET /api/auth/logout/ HTTP/1.1" 403 99
+WARNING 2025-08-31 18:35:15,281 log 2768 6232879104 Forbidden: /api/auth/check/
+WARNING 2025-08-31 18:35:15,281 basehttp 2768 6232879104 "GET /api/auth/check/ HTTP/1.1" 403 99
+INFO 2025-08-31 18:35:26,214 basehttp 2768 6199226368 "GET /api/schema/ HTTP/1.1" 200 167738
+INFO 2025-08-31 18:35:26,214 basehttp 2768 6199226368 - Broken pipe from ('127.0.0.1', 59459)
+INFO 2025-08-31 23:25:18,937 basehttp 2768 6199226368 "GET /api/docs/ HTTP/1.1" 200 4880
+INFO 2025-08-31 23:25:18,941 basehttp 2768 6216052736 "OPTIONS /api/auth/register/ HTTP/1.1" 200 185
+INFO 2025-08-31 23:25:18,944 basehttp 2768 6232879104 "OPTIONS /api/auth/login/ HTTP/1.1" 200 182
+WARNING 2025-08-31 23:25:19,021 log 2768 6216052736 Forbidden: /api/auth/logout/
+WARNING 2025-08-31 23:25:19,021 basehttp 2768 6216052736 "OPTIONS /api/auth/logout/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,025 log 2768 6232879104 Forbidden: /api/auth/check/
+WARNING 2025-08-31 23:25:19,025 basehttp 2768 6232879104 "OPTIONS /api/auth/check/ HTTP/1.1" 403 99
+INFO 2025-08-31 23:25:19,028 basehttp 2768 6216052736 "OPTIONS /api/auth/token/refresh/ HTTP/1.1" 200 189
+WARNING 2025-08-31 23:25:19,030 log 2768 6232879104 Forbidden: /api/auth/password/change/
+WARNING 2025-08-31 23:25:19,031 basehttp 2768 6232879104 "OPTIONS /api/auth/password/change/ HTTP/1.1" 403 99
+INFO 2025-08-31 23:25:19,034 basehttp 2768 6216052736 "OPTIONS /api/auth/password/reset/ HTTP/1.1" 200 191
+INFO 2025-08-31 23:25:19,039 basehttp 2768 6232879104 "OPTIONS /api/auth/password/reset/confirm/ HTTP/1.1" 200 205
+WARNING 2025-08-31 23:25:19,042 log 2768 6216052736 Forbidden: /api/auth/my-login-history/
+WARNING 2025-08-31 23:25:19,042 basehttp 2768 6216052736 "OPTIONS /api/auth/my-login-history/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,045 log 2768 6232879104 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 23:25:19,045 basehttp 2768 6232879104 "OPTIONS /api/users/dashboard/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,050 log 2768 6216052736 Forbidden: /api/users/overview/
+WARNING 2025-08-31 23:25:19,051 basehttp 2768 6216052736 "OPTIONS /api/users/overview/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,054 log 2768 6232879104 Forbidden: /api/users/verify/
+WARNING 2025-08-31 23:25:19,055 basehttp 2768 6232879104 "OPTIONS /api/users/verify/ HTTP/1.1" 403 99
+INFO 2025-08-31 23:25:19,058 basehttp 2768 6216052736 "OPTIONS /api/users/module-info/ HTTP/1.1" 200 231
+WARNING 2025-08-31 23:25:19,060 log 2768 6232879104 Forbidden: /api/users/profiles/
+WARNING 2025-08-31 23:25:19,060 basehttp 2768 6232879104 "OPTIONS /api/users/profiles/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,063 log 2768 6216052736 Forbidden: /api/users/preferences/
+WARNING 2025-08-31 23:25:19,063 basehttp 2768 6216052736 "OPTIONS /api/users/preferences/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,065 log 2768 6232879104 Forbidden: /api/users/wallets/
+WARNING 2025-08-31 23:25:19,065 basehttp 2768 6232879104 "OPTIONS /api/users/wallets/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,070 log 2768 6216052736 Not Found: /api/auth/roles/
+WARNING 2025-08-31 23:25:19,071 basehttp 2768 6216052736 "OPTIONS /api/auth/roles/ HTTP/1.1" 404 5704
+WARNING 2025-08-31 23:25:19,077 log 2768 6232879104 Not Found: /api/auth/users/
+WARNING 2025-08-31 23:25:19,077 basehttp 2768 6232879104 "OPTIONS /api/auth/users/ HTTP/1.1" 404 5704
+WARNING 2025-08-31 23:25:19,081 log 2768 6216052736 Not Found: /api/auth/login-history/
+WARNING 2025-08-31 23:25:19,081 basehttp 2768 6216052736 "OPTIONS /api/auth/login-history/ HTTP/1.1" 404 5728
+WARNING 2025-08-31 23:25:19,084 log 2768 6232879104 Not Found: /admin-api/
+WARNING 2025-08-31 23:25:19,084 basehttp 2768 6232879104 "OPTIONS /admin-api/ HTTP/1.1" 404 3358
+INFO 2025-08-31 23:25:19,382 basehttp 2768 6216052736 "GET /api/schema/ HTTP/1.1" 200 167738
+WARNING 2025-08-31 23:25:19,532 log 2768 6216052736 Forbidden: /api/users/dashboard/
+WARNING 2025-08-31 23:25:19,532 basehttp 2768 6216052736 "GET /api/users/dashboard/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,533 log 2768 6232879104 Forbidden: /api/users/profiles/
+WARNING 2025-08-31 23:25:19,533 basehttp 2768 6232879104 "GET /api/users/profiles/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,534 log 2768 6216052736 Forbidden: /api/auth/logout/
+WARNING 2025-08-31 23:25:19,534 basehttp 2768 6216052736 "GET /api/auth/logout/ HTTP/1.1" 403 99
+WARNING 2025-08-31 23:25:19,535 log 2768 6232879104 Forbidden: /api/auth/check/
+WARNING 2025-08-31 23:25:19,535 basehttp 2768 6232879104 "GET /api/auth/check/ HTTP/1.1" 403 99
+INFO 2025-08-31 23:25:23,511 autoreload 2768 8614010624 /Users/chan/Python/loud/authentication/views.py changed, reloading.
+INFO 2025-08-31 23:25:23,784 autoreload 4471 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 23:27:39,263 autoreload 4471 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 23:27:39,666 autoreload 4534 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 23:34:12,429 autoreload 4534 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 23:34:12,780 autoreload 4819 8614010624 Watching for file changes with StatReloader
+INFO 2025-08-31 23:34:13,977 autoreload 4819 8614010624 /Users/chan/Python/loud/main/settings.py changed, reloading.
+INFO 2025-08-31 23:34:14,189 autoreload 4820 8614010624 Watching for file changes with StatReloader
+INFO 2025-09-01 22:09:12,477 autoreload 31552 8614010624 Watching for file changes with StatReloader
+INFO 2025-09-01 22:09:43,303 autoreload 31577 8614010624 Watching for file changes with StatReloader
+INFO 2025-09-02 14:42:12,412 basehttp 41422 6140915712 "GET /api/social/check/ HTTP/1.1" 200 166
+ERROR 2025-09-02 14:42:21,441 log 41422 6140915712 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/drf_spectacular/renderers.py", line 61, in render
+    return yaml.dump(
+           ^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/__init__.py", line 253, in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/__init__.py", line 241, in dump_all
+    dumper.represent(data)
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 27, in represent
+    node = self.represent_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 48, in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 207, in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 118, in represent_mapping
+    node_value = self.represent_data(item_value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 58, in represent_data
+    node = self.yaml_representers[None](self, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chan/Python/loud/.venv/lib/python3.11/site-packages/yaml/representer.py", line 231, in represent_undefined
+    raise RepresenterError("cannot represent an object", data)
+yaml.representer.RepresenterError: ('cannot represent an object', <class 'authentication.serializers.UserSerializer'>)
+ERROR 2025-09-02 14:42:21,443 basehttp 41422 6140915712 "GET /api/schema/ HTTP/1.1" 500 449408
+INFO 2025-09-02 14:47:07,014 basehttp 41422 6140915712 "GET /api/social/check/ HTTP/1.1" 200 166
+INFO 2025-09-02 14:49:41,249 basehttp 41422 6140915712 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-09-02 14:50:03,317 basehttp 41422 6140915712 "HEAD /admin/ HTTP/1.1" 302 0
