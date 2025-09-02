@@ -1,5 +1,5 @@
 """
-ASGI config for loud project.
+ASGI config for Pet project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

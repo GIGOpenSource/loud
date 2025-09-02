@@ -50,7 +50,7 @@ users/tests/
 
 ### 运行所有测试（推荐）
 ```bash
-cd /Users/chan/Python/loud
+cd /Users/chan/Python/Pet
 python users/tests/run_tests.py all
 ```
 

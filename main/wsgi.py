@@ -1,5 +1,5 @@
 """
-WSGI config for loud project.
+WSGI config for Pet project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
